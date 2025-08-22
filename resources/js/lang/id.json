@@ -1,0 +1,12 @@
+{
+    "main_menu": [
+        {"label": "Home", "url": "/", "name": "public.home"},
+        {"label": "Sewa Mobil", "url": "/sewa-mobil", "name": "public.carrental"},
+        {"label": "Paket Wisata", "url": "/paket-wisata", "name": "public.tourpackage"},
+        {"label": "Blog", "url": "/blog", "name": "public.blog"}
+    ],
+    "home": {
+        "title": "Rumah",
+        "description": "deskripsi rumah"
+    }
+}

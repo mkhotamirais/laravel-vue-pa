@@ -1,0 +1,12 @@
+{
+    "main_menu": [
+        {"label": "Home", "url": "/", "name": "public.home"},
+        {"label": "Car Rental", "url": "/sewa-mobil", "name": "public.carrental"},
+        {"label": "Tour Package", "url": "/paket-wisata", "name": "public.tourpackage"},
+        {"label": "Blog", "url": "/blog", "name": "public.blog"}
+    ],
+    "home": {
+        "title": "Home",
+        "description": "home description"
+    }
+}
