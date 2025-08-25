@@ -1,5 +1,11 @@
-<script setup></script>
+<script setup>
+import Hero from "../Components/sections/Hero.vue";
+</script>
 
 <template>
-  <div>Toupackage</div>
+  <Hero
+    :top_title="'tourpackage.top_title'"
+    :title="'tourpackage.title'"
+    :description="'tourpackage.description'"
+  />
 </template>

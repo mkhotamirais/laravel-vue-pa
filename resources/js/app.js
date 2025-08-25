@@ -7,6 +7,7 @@ import { ZiggyVue } from "../../vendor/tightenco/ziggy";
 import { createI18n } from "vue-i18n";
 import messages from "./lang";
 import Main from "./Layouts/Main.vue";
+import DashboardLayout from "./Layouts/DashboardLayout.vue";
 
 const userLang = localStorage.getItem("locale") || "id";
 const i18n = createI18n({
@@ -21,9 +22,15 @@ createInertiaApp({
     resolve: (name) => {
         // const pages = import.meta.glob("./Pages/**/*.vue", { eager: true });
         // return pages[`./Pages/${name}.vue`];
+
         const pages = import.meta.glob("./Pages/**/*.vue", { eager: true });
         let page = pages[`./Pages/${name}.vue`];
-        page.default.layout = page.default.layout || Main;
+        // page.default.layout = page.default.layout || Main;
+        if (name.startsWith("Dashboard")) {
+            page.default.layout = [Main, DashboardLayout];
+        } else {
+            page.default.layout = page.default.layout || Main;
+        }
         return page;
     },
     setup({ el, App, props, plugin }) {

@@ -17,7 +17,7 @@ const changeLang = () => {
     id="language-select"
     v-model="lang"
     @change="changeLang"
-    class="rounded-lg dark:bg-dark py-1 font-poppins text-sm"
+    class="py-2 mx-2 text-sm text-gray-600 font-medium cursor-pointer"
   >
     <option value="en">EN</option>
     <option value="id">ID</option>

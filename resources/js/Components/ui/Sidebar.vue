@@ -1,8 +1,11 @@
 <script setup>
-import { ref, computed, provide } from "vue";
+import { ref, computed, watch, provide } from "vue";
 
 const props = defineProps({
-  trigger: {},
+  modelValue: {
+    type: Boolean,
+    default: false,
+  },
   bg: { type: String, default: "" },
   title: {},
   close: { type: Boolean, default: true },
@@ -16,11 +19,12 @@ const props = defineProps({
   classSide: { type: String, default: "" },
 });
 
-const open = ref(false);
+const emit = defineEmits(["update:modelValue"]);
 
-const toggleSidebar = () => {
-  open.value = !open.value;
-};
+const open = computed({
+  get: () => props.modelValue,
+  set: (value) => emit("update:modelValue", value),
+});
 
 const closeSidebar = () => {
   open.value = false;
@@ -42,16 +46,7 @@ const sideClasses = computed(() => {
 
 <template>
   <div :class="`relative ${props.className}`">
-    <button
-      type="button"
-      @click="toggleSidebar"
-      :aria-label="props.ariaLabel"
-      class="flex items-center"
-    >
-      <slot name="trigger">
-        <div v-if="props.trigger" v-html="props.trigger"></div>
-      </slot>
-    </button>
+    <slot name="trigger" />
 
     <div
       :class="[
@@ -80,12 +75,14 @@ const sideClasses = computed(() => {
               type="button"
               @click="closeSidebar"
               aria-label="Close Sidebar"
-              class="text-gray-500 hover:text-gray-700"
+              class="btn-icon border-none"
             >
               <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
-          <slot />
+          <div class="mt-2">
+            <slot />
+          </div>
         </div>
       </div>
     </div>

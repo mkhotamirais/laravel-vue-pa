@@ -45,7 +45,7 @@ const emit = defineEmits(["click"]);
 <template>
   <component
     :is="props.as"
-    class="inline-flex items-center justify-center rounded px-4 py-2 text-sm transition-colors disabled:opacity-50"
+    class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm transition-colors disabled:opacity-50"
     :class="[variantClasses, props.className]"
     @click="handleClick"
   >

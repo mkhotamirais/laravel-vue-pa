@@ -1,12 +1,82 @@
 {
     "main_menu": [
         {"label": "Home", "url": "/", "name": "public.home"},
-        {"label": "Car Rental", "url": "/sewa-mobil", "name": "public.carrental"},
+        {"label": "Car Rental", "url": "/rental-mobil", "name": "public.carrental"},
         {"label": "Tour Package", "url": "/paket-wisata", "name": "public.tourpackage"},
         {"label": "Blog", "url": "/blog", "name": "public.blog"}
     ],
+    "admin_menu": [
+        {"label": "Dashboard", "url": "/dashboard", "name": "dashboard"},
+        {"label": "Blog", "url": "/dashboard/blog", "name": "blog.index"},
+        {"label": "Create Blog", "url": "/dashboard/blog/create", "name": "blog.create"},
+        {"label": "Car Rental", "url": "/dashboard/rental-mobil", "name": "rental-mobil.index"},
+        {"label": "Create Car Rental", "url": "/dashboard/blog/rental-mobil/create", "name": "rental-mobil.create"},
+        {"label": "Blog Category", "url": "/dashboard/blog-category", "name": "blogcat.index"}
+    ],
     "home": {
-        "title": "Home",
-        "description": "home description"
+        "title": "The Best Tour Packages & Car Rentals in Lombok",
+        "description": "Get the comfort of Car Rental and Tour Packages in Lombok with professional and friendly service from us. Explore the beauty of Lombok with ease and enjoy a pleasant journey.",
+        "contact_title": "Want to rent a car or choose a holiday package?",
+        "contact_description": "Contact us for reservations and more information."
+    },
+    "carrental": {
+        "top_title": "Car Rental",
+        "title": "Find your perfect vehicle for rent",
+        "description": "Choose from our wide selection of vehicles, from economical sedans to luxury SUVs. Find the perfect car for any trip and enjoy the freedom of exploring without limits."
+    },
+    "tourpackage": {
+        "top_title": "Tour Packages",
+        "title": "Book your next dream tour today",
+        "description": "Plan your dream vacation with our curated tour packages. From exotic beaches to majestic mountains, each package is designed for an unforgettable experience."
+    },
+    "blog": {
+        "top_title": "Blogs",
+        "title": "Discover captivating stories from our blog",
+        "description": "Dive into the beauty of nature through our articles and travel guides. Get tips, inspiring stories, and the best recommendations for your next adventure."
+    },
+    "form": {
+        "login": "Login",
+        "login_desc": "Don't have an account?",
+        "login_forgot": "Forgot Password?",
+        "register": "Register",
+        "register_desc": "Already have an account?",
+        "register_fields": ["Name", "Email", "Password", "Confirm Password"]
+    },
+    "footer": {
+        "moto": "The Best Tour Packages & Car Rentals in Lombok",
+        "address": "Jln Raya Lembar-Gerung West Lombok (Near the Gerung Roundabout).",
+        "links": "links",
+        "other_links": "other links"
+    },
+    "links": {
+        "contact_us_btn": "Contact Us",
+        "fb": {
+            "label": "panoramaalam",
+            "url": "https://www.facebook.com/profile.php?id=100089579831759"
+        },
+        "ig": {
+            "label": "panoramaalamid",
+            "url": "https://www.instagram.com/panoramaalamid?igsh=MXYyMHFndm9vNGgwbA=="
+        },
+        "wa": {
+            "label" : "+62-813-1957-3240",
+            "url": "https://wa.me/6281319573240",
+            "url2": "https://api.whatsapp.com/send?phone=6281319573240"
+        },
+        "rl": {
+            "label": "Rental Lombok",
+            "url": "https://rentallombok.id"
+        }
+    },
+    "buttons": {
+        "btn_all_blogs": "All Blogs",
+        "btn_all_carrentals": "All Car Rental",
+        "btn_all_tourpackages": "All Tour Package",
+        "btn_order_now": "Order Now",
+        "btn_latest_blogs": "Latest Blogs",
+        "btn_other_carrentals": "Other Car Rental",
+        "btn_carrental_terms": "Terms & Conditions",
+        "btn_carrental_info": "Informations"
+
     }
 }

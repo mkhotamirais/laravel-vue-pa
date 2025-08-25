@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "tailwindcss";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -7,17 +8,110 @@
 
 :root {
     --orange: #f97316;
+    --gray: #55555;
+    --red: red;
 }
 
 @theme {
-    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+    --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
     --color-primary: var(--orange);
+    --color-text: var(--gray);
+    --color-danger: var(--red);
 }
 
 @layer components {
-    .container {
-        @apply px-3 h-full;
+    a,
+    button {
+        @apply cursor-pointer;
     }
+
+    .container {
+        @apply px-3 lg:px-16 mx-auto h-full;
+    }
+
+    .h1 {
+        @apply text-4xl font-bold capitalize;
+    }
+
+    .h2 {
+        @apply text-3xl font-semibold capitalize;
+    }
+
+    .h3 {
+        @apply text-lg font-medium capitalize;
+    }
+
+    .btn {
+        @apply py-2 px-3 w-max flex items-center bg-primary text-white hover:bg-primary/80 transition-all rounded;
+    }
+
+    .btn-icon {
+        @apply leading-none px-2.5 py-2 border block text-lg rounded border-gray-300 hover:border-gray-400 hover:bg-gray-100 transition-all;
+    }
+
+    .btn-outline {
+        @apply bg-transparent ring ring-inset hover:ring-2 ring-primary py-4 px-7 w-auto justify-center rounded-full inline-block text-center;
+    }
+
+    .badge {
+        @apply rounded border border-primary text-xs py-0.5 px-2;
+    }
+
+    .link {
+        @apply text-primary hover:underline;
+    }
+
+    .footer-link {
+        @apply py-1.5 text-gray-500 hover:text-primary w-fit;
+    }
+}
+
+/* Ckeditor */
+.ck-editor__editable {
+    @apply h-48 resize-y;
+}
+
+.ck-editor__editable p {
+    @apply mb-4;
+}
+
+.ck-editor__editable h2,
+.text-content h2 {
+    @apply font-semibold text-xl mb-2 text-gray-800;
+}
+
+.ck-editor__editable h3,
+.text-content h3 {
+    @apply font-semibold text-lg mb-2 text-gray-800;
+}
+
+.ck-editor__editable a,
+.text-content a {
+    @apply font-medium text-primary hover:underline;
+}
+
+.text-content {
+    @apply text-sm lg:text-base leading-relaxed text-gray-600 space-y-4 mt-4 first-letter:uppercase;
+}
+
+.ck-editor__editable ol,
+.text-content ol {
+    @apply list-decimal mb-4 ml-8;
+}
+
+.ck-editor__editable ol li,
+.text-content ol li {
+    @apply pl-2;
+}
+
+.ck-editor__editable ul,
+.text-content ul {
+    @apply list-disc mb-4 ml-8;
+}
+
+.ck-editor__editable ul li,
+.text-content ul li {
+    @apply pl-2;
 }

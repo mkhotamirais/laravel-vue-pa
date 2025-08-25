@@ -1,12 +1,81 @@
 {
     "main_menu": [
         {"label": "Home", "url": "/", "name": "public.home"},
-        {"label": "Sewa Mobil", "url": "/sewa-mobil", "name": "public.carrental"},
+        {"label": "Rental Mobil", "url": "/rental-mobil", "name": "public.carrental"},
         {"label": "Paket Wisata", "url": "/paket-wisata", "name": "public.tourpackage"},
         {"label": "Blog", "url": "/blog", "name": "public.blog"}
     ],
+    "admin_menu": [
+        {"label": "Dashboard", "url": "/dashboard", "name": "dashboard"},
+        {"label": "Blog", "url": "/dashboard/blog", "name": "blog.index"},
+        {"label": "Buat Blog", "url": "/dashboard/blog/create", "name": "blog.create"},
+        {"label": "Rental Mobil", "url": "/dashboard/rental-mobil", "name": "rental-mobil.index"},
+        {"label": "Buat Rental Mobil", "url": "/dashboard/blog/rental-mobil/create", "name": "rental-mobil.create"},
+        {"label": "Blog Kategori", "url": "/dashboard/blog-category", "name": "blog-category.index"}
+    ],
     "home": {
-        "title": "Rumah",
-        "description": "deskripsi rumah"
+        "title": "Paket Wisata & Sewa Mobil Terbaik di Lombok",
+        "description": "Dapatkan kenyamanan Sewa Mobil dan Paket Wisata di Lombok dengan layanan profesional dan ramah dari kami. Jelajahi keindahan Lombok dengan mudah dan nikmati perjalanan yang menyenangkan.",
+        "contact_title": "Mau sewa mobil atau pilih paket liburan?",
+        "contact_description": "Hubungi kami untuk reservasi dan info lebih lengkap."
+    },
+    "carrental": {
+        "top_title": "Sewa Mobil",
+        "title": "Temukan Kendaraan Sempurna untuk Disewa",
+        "description": "Pilih dari beragam pilihan kendaraan kami, mulai dari sedan ekonomis hingga SUV mewah. Temukan mobil yang tepat untuk setiap perjalanan dan nikmati kebebasan menjelajah tanpa batas."
+    },
+    "tourpackage": {
+        "top_title": "Paket Wisata",
+        "title": "Pesan Tur Impian Anda Hari Ini",
+        "description": "Rencanakan liburan impian Anda dengan paket tur pilihan kami. Dari pantai eksotis hingga pegunungan megah, setiap paket dirancang untuk pengalaman tak terlupakan."
+    },
+    "blog": {
+        "top_title": "Blog",
+        "title": "Temukan Kisah Menarik dari Blog Kami",
+        "description": "Selami keindahan alam melalui artikel dan panduan perjalanan kami. Dapatkan tips, kisah inspiratif, dan rekomendasi terbaik untuk petualangan Anda berikutnya."
+    },
+    "form": {
+        "login": "Login",
+        "login_desc": "Belum punya akun?",
+        "login_forgot": "Lupa Password?",
+        "register": "Register",
+        "register_desc": "Sudah punya akun?",
+        "register_fields": ["Nama", "Email", "Password", "Konfirmasi Password"]
+    },
+    "footer": {
+        "moto": "Paket Wisata & Sewa Mobil Terbaik di Lombok",
+        "address": "Jln Raya Lembar-Gerung Lombok Barat (Dekat dengan Bundaran Gerung)",
+        "links": "Tautan",
+        "other_links": "Tautan Lain"
+    },
+    "links": {
+        "contact_us_btn": "Hubungi Kami",
+        "fb": {
+            "label": "panoramaalam",
+            "url": "https://www.facebook.com/profile.php?id=100089579831759"
+        },
+        "ig": {
+            "label": "panoramaalamid",
+            "url": "https://www.instagram.com/panoramaalamid?igsh=MXYyMHFndm9vNGgwbA=="
+        },
+        "wa": {
+            "label" : "+62-813-1957-3240",
+            "url": "https://wa.me/6281319573240",
+            "url2": "https://api.whatsapp.com/send?phone=6281319573240"
+        },
+        "rl": {
+            "label": "Rental Lombok",
+            "url": "https://rentallombok.id"
+        }
+    },
+    "buttons": {
+        "btn_all_blogs": "Semua Blog",
+        "btn_all_carrentals": "Semua Rental Mobil",
+        "btn_all_tourpackages": "Semua Paket Wisata",
+        "btn_order_now": "Pesan Sekarang",
+        "btn_latest_blogs": "Blog Terbaru",
+        "btn_other_carrentals": "Rental Mobil Lainnya",
+        "btn_carrental_terms": "Syarat & Ketentuan",
+        "btn_carrental_info": "Informasi"
     }
 }
