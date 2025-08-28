@@ -7,8 +7,8 @@
 @source '../**/*.js';
 
 :root {
-    --orange: #d24900;
-    --orange-hover: #d12500;
+    --orange: #a32c00;
+    --orange-hover: #a30f00;
     --gray: #55555;
     --red: red;
 }
