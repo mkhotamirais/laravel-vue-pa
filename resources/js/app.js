@@ -20,13 +20,25 @@ const i18n = createI18n({
 
 createInertiaApp({
     title: (title) => `${title ? `${title} - Panorama Alam` : "Panorama Alam"}`,
-    resolve: (name) => {
-        // const pages = import.meta.glob("./Pages/**/*.vue", { eager: true });
-        // return pages[`./Pages/${name}.vue`];
+    // resolve: (name) => {
+    //     // const pages = import.meta.glob("./Pages/**/*.vue", { eager: true });
+    //     // return pages[`./Pages/${name}.vue`];
 
-        const pages = import.meta.glob("./Pages/**/*.vue", { eager: false });
-        let page = pages[`./Pages/${name}.vue`];
-        // page.default.layout = page.default.layout || Main;
+    //     const pages = import.meta.glob("./Pages/**/*.vue", {eager: true});
+    //     let page = pages[`./Pages/${name}.vue`];
+    //     // page.default.layout = page.default.layout || Main;
+    //     if (name.startsWith("Dashboard")) {
+    //         page.default.layout = [Main, DashboardLayout];
+    //     } else {
+    //         page.default.layout = page.default.layout || Main;
+    //     }
+    //     return page;
+    // },
+    resolve: async (name) => {
+        // Baris ini yang diubah
+        const pages = import.meta.glob("./Pages/**/*.vue");
+        let page = await pages[`./Pages/${name}.vue`]();
+
         if (name.startsWith("Dashboard")) {
             page.default.layout = [Main, DashboardLayout];
         } else {
