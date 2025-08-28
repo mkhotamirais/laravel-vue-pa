@@ -52,7 +52,7 @@ const chooseCategory = (cat) => {
 
       <a
         :href="$t('links.wa.url')"
-        class="w-full py-2 bg-primary hover:bg-primary/90 transition-all text-white rounded-full inline-flex items-center justify-center gap-2"
+        class="w-full py-2 bg-primary hover:bg-primary-hover transition-all text-white rounded-full inline-flex items-center justify-center gap-2"
       >
         <i class="fa-brands fa-whatsapp"></i>
         {{ $t("buttons.btn_order_now") }}

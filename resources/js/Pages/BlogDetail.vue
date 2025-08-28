@@ -17,7 +17,7 @@ defineProps({
 <template>
   <div>
     <Head>
-      <title>{{ smartTrim(capitalize(blog.title), 35) }}</title>
+      <title>{{ smartTrim(capitalize(blog.title), 40) }}</title>
       <meta
         head-key="description"
         name="description"

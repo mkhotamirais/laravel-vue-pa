@@ -2,7 +2,7 @@
 import { formatRupiah, smartTrim } from "@/functions";
 import Slider from "@/Components/ui/Slider.vue";
 import AsideLatestBlog from "@/Components/sections/AsideLatestBlog.vue";
-import { ref } from "vue";
+import { capitalize, ref } from "vue";
 import { router } from "@inertiajs/vue3";
 import Payment from "@/Components/sections/Payment.vue";
 import AsideOtherTourpackage from "@/Components/sections/AsideOtherTourpackage.vue";
@@ -33,6 +33,7 @@ const chooseCategory = (cat) => {
 
 <template>
   <div>
+    <Head :title="`${smartTrim(capitalize(tourpackage.name))}`" />
     <section class="py-8">
       <div class="container">
         <div class="flex flex-col md:flex-row gap-8 items-start">

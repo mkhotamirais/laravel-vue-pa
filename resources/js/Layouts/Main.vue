@@ -4,11 +4,21 @@ import Footer from "./Footer.vue";
 </script>
 
 <template>
-  <div class="flex flex-col min-h-screen font-poppins">
-    <Header />
-    <main class="flex-1">
-      <slot></slot>
-    </main>
-    <Footer />
+  <div>
+    <Head>
+      <title>{{ $t("home.title") }}</title>
+      <meta
+        head-key="description"
+        name="description"
+        :content="$t('home.description')"
+      />
+    </Head>
+    <div class="flex flex-col min-h-screen font-poppins">
+      <Header />
+      <main class="flex-1">
+        <slot></slot>
+      </main>
+      <Footer />
+    </div>
   </div>
 </template>

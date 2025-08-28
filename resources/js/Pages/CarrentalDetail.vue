@@ -21,7 +21,7 @@ const chooseCategory = (cat) => {
 
 <template>
   <div>
-    <!-- <Head :title="`Sewa Mobil ${smartTrim(capitalize(carrental.name))}`" /> -->
+    <Head :title="`Sewa Mobil ${smartTrim(capitalize(carrental.name))}`" />
     <section class="py-8">
       <div class="container">
         <div class="flex flex-col md:flex-row gap-8 items-start">

@@ -52,7 +52,7 @@ const submit = () => {
 
 <template>
   <div>
-    <Head title="Create Tour Package" />
+    <Head title="Edit Tour Package" />
     <form @submit.prevent="submit" class="py-4">
       <ImageUpload
         @image="(e) => banner(e)"

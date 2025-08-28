@@ -9,6 +9,14 @@ defineProps({ blogs: Object, blogcats: Object });
 
 <template>
   <div>
+    <Head>
+      <title>{{ $t("blog.title") }}</title>
+      <meta
+        head-key="description"
+        name="description"
+        :content="$t('blog.description')"
+      />
+    </Head>
     <Hero
       :top_title="'blog.top_title'"
       :title="'blog.title'"

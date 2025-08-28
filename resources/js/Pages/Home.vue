@@ -21,7 +21,7 @@ defineProps({ blogs: Object, carrentals: Object, tourpackages: Object });
           <div class="flex flex-col sm:flex-row gap-2 text-center">
             <Link
               :href="route('public.carrental')"
-              class="bg-primary hover:bg-primary/80 py-4 w-42 justify-center rounded-full"
+              class="bg-primary hover:bg-primary-hover py-4 w-42 justify-center rounded-full"
               >{{ $t("main_menu.1.label") }}</Link
             >
             <Link

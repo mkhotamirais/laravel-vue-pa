@@ -15,10 +15,8 @@ const deleteTourpackage = (tour) => {
 
 <template>
   <div>
-    <Head>
-      <title>{{ $t("tourpackage.title") }}</title>
-      <meta head-key="description" name="description" />
-    </Head>
+    <Head title="Tour Package List" />
+
     <Link :href="route('paket-wisata.create')" class="btn w-fit mb-2"
       >Create Tour Package</Link
     >

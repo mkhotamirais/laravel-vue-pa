@@ -29,7 +29,7 @@ const submit = () => {
 
 <template>
   <div>
-    <Head title="Update Blog" />
+    <Head title="Edit Blog" />
     <form @submit.prevent="submit" class="py-4">
       <ImageUpload @image="(e) => banner(e)" :oldBanner="blog.banner" />
       <Input

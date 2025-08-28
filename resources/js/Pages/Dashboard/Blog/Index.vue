@@ -15,10 +15,7 @@ const deleteBlog = (b) => {
 
 <template>
   <div>
-    <Head>
-      <title>{{ $t("blog.title") }}</title>
-      <meta head-key="description" name="description" />
-    </Head>
+    <Head title="Blog List" />
     <Link :href="route('blog.create')" class="btn w-fit mb-2">Create Blog</Link>
     <SessMsg :msg="msg" />
     <div class="flex flex-col md:flex-row gap-4 items-start">

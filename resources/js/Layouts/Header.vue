@@ -72,6 +72,7 @@ const user = computed(() => page.props.auth.user);
               @click="isSidebarOpen = true"
               type="button"
               class="btn-icon"
+              aria-label="mobile menu"
             >
               <i class="fa-solid fa-bars"></i>
             </button>

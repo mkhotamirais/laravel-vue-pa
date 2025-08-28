@@ -20,6 +20,7 @@ import BlogExcerpt from "./BlogExcerpt.vue";
         :alt="blog.title"
         width="400"
         height="400"
+        loading="lazy"
         class="rounded-t w-full h-56 object-cover object-center mb-3"
       />
       <h3 class="h3 group-hover:underline">{{ smartTrim(blog.title, 50) }}</h3>

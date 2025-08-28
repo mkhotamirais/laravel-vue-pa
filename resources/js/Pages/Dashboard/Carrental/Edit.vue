@@ -24,7 +24,7 @@ const form = useForm({
 
 <template>
   <div>
-    <Head title="Update carRental" />
+    <Head title="Edit Car Rental" />
     <form @submit.prevent="form.post(route('rental-mobil.update', carrental))">
       <ImageUpload @image="(e) => image(e)" :oldBanner="carrental.banner" />
       <Input

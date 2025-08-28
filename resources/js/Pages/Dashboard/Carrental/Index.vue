@@ -21,10 +21,7 @@ const chooseCategory = (cat) => {
 
 <template>
   <div>
-    <Head>
-      <title>{{ $t("carrental.title") }}</title>
-      <meta head-key="description" name="description" />
-    </Head>
+    <Head title="Car Rental List" />
 
     <Link :href="route('rental-mobil.create')" class="btn w-fit"
       >Create Car Rental</Link

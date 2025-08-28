@@ -7,7 +7,8 @@
 @source '../**/*.js';
 
 :root {
-    --orange: #f97316;
+    --orange: #fa6000;
+    --orange-hover: #fa3400;
     --gray: #55555;
     --red: red;
 }
@@ -17,6 +18,7 @@
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
     --color-primary: var(--orange);
+    --color-primary-hover: var(--orange-hover);
     --color-text: var(--gray);
     --color-danger: var(--red);
 }
@@ -44,7 +46,7 @@
     }
 
     .btn {
-        @apply py-2 px-3 w-max flex items-center bg-primary text-white hover:bg-primary/80 transition-all rounded;
+        @apply py-2 px-3 w-max flex items-center bg-primary text-white hover:bg-primary-hover transition-all rounded;
     }
 
     .btn-icon {

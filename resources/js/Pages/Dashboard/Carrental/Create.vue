@@ -23,7 +23,7 @@ const submit = () => {
 
 <template>
   <div>
-    <Head title="Create Rental" />
+    <Head title="Create Car Rental" />
     <form @submit.prevent="submit">
       <ImageUpload @image="(e) => image(e)" :error="form.errors.banner" />
       <Input

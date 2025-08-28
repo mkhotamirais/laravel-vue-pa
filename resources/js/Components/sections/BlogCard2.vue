@@ -17,6 +17,7 @@ import BlogExcerpt from "./BlogExcerpt.vue";
         :alt="blog.title"
         width="200"
         height="200"
+        loading="lazy"
         class="w-full h-full rounded-l object-cover object-center"
       />
     </Link>

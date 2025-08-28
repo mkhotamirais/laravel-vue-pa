@@ -14,6 +14,7 @@ defineProps({
 
 <template>
   <div>
+    <Head title="Dashboard" />
     <div class="mb-4">
       <p class="">Hi, {{ $page.props.auth.user.name }}</p>
     </div>

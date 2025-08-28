@@ -47,7 +47,7 @@ const deleteInfocat = (ic) => {
 
 <template>
   <div>
-    <Head title="Tourpackage Category" />
+    <Head title="Tour Package Route" />
 
     <SessMsg :msg="msg" />
 

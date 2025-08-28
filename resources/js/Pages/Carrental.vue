@@ -21,6 +21,14 @@ const chooseCategory = (cat) => {
 
 <template>
   <div>
+    <Head>
+      <title>{{ $t("carrental.title") }}</title>
+      <meta
+        head-key="description"
+        name="description"
+        :content="$t('carrental.description')"
+      />
+    </Head>
     <Hero
       :top_title="'carrental.top_title'"
       :title="'carrental.title'"
