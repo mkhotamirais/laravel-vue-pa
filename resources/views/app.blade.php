@@ -5,6 +5,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0">
 
+    <meta name="google-site-verification" content="VAVVSlBF_B3_IG7E-lt6XTwayHuQwNpNuku3KyEZfxc" />
+    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RES1MLCJZL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-RES1MLCJZL');
+    </script>
+
     <link rel="icon" type="image/x-icon" href="storage/images/logo-panoramaalam-favicon.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
