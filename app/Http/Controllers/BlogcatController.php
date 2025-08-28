@@ -10,6 +10,7 @@ class BlogcatController extends Controller
 {
     public function index()
     {
+        // halo
         $title = "Blog Category";
         $blogcats = Blogcat::latest()->paginate(8);
         $msg = session('msg');
