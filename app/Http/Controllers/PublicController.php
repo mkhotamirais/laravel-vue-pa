@@ -15,7 +15,7 @@ class PublicController extends Controller
         $blogs = Blog::with('blogcat:id,name,slug')->latest()->take(4)->get();
         $carrentals = Carrental::orderByRaw("FIELD(category, 'lepas_kunci', 'include_driver')")
             ->orderBy('price')
-            ->paginate(8);
+            ->take(4)->get();
         $tourpackages = Tourpackage::with('tourpackagecat:id,name,slug')->orderBy('price', 'asc')->take(3)->get();
         return inertia('Home', compact('blogs', 'carrentals', 'tourpackages'));
     }
