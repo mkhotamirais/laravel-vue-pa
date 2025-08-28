@@ -11,7 +11,7 @@ class BlogcatController extends Controller
     public function index()
     {
         // halo
-        $title = "Blog Category";
+        $title = "Blog Categoryyy";
         $blogcats = Blogcat::latest()->paginate(8);
         $msg = session('msg');
         return inertia('Dashboard/Blog/Blogcat', compact('title', 'blogcats', 'msg'));
