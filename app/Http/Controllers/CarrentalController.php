@@ -21,17 +21,10 @@ class CarrentalController extends Controller
     public function index(Request $request)
     {
         $title = "Car Rental";
-        $carrentals = Carrental::filter(request(['carrentalcat']))
-            ->orderByRaw("
-                CASE 
-                    WHEN category = 'Lepas Kunci' AND price = (SELECT MIN(price) FROM carrentals WHERE category = 'Lepas Kunci') THEN 1
-                    WHEN category = 'Lepas Kunci' THEN 2
-                    WHEN category = 'Include Driver' AND price = (SELECT MIN(price) FROM carrentals WHERE category = 'Include Driver') THEN 3
-                    WHEN category = 'Include Driver' THEN 4
-                    ELSE 5
-                END
-            ")
+        $carrentals = Carrental::orderByRaw("FIELD(category, 'lepas_kunci', 'include_driver')")
+            ->orderBy('price')
             ->paginate(8);
+
         $msg = session('msg');
         return inertia('Dashboard/Carrental/Index', compact('title', 'carrentals', 'msg'));
     }

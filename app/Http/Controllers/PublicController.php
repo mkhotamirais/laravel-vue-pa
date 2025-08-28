@@ -13,32 +13,17 @@ class PublicController extends Controller
     public function home()
     {
         $blogs = Blog::with('blogcat:id,name,slug')->latest()->take(4)->get();
-        $carrentals = Carrental::orderByRaw("
-                CASE 
-                    WHEN category = 'Lepas Kunci' AND price = (SELECT MIN(price) FROM carrentals WHERE category = 'Lepas Kunci') THEN 1
-                    WHEN category = 'Lepas Kunci' THEN 2
-                    WHEN category = 'Include Driver' AND price = (SELECT MIN(price) FROM carrentals WHERE category = 'Include Driver') THEN 3
-                    WHEN category = 'Include Driver' THEN 4
-                    ELSE 5
-                END
-            ")
-            ->take(4)->get();
+        $carrentals = Carrental::orderByRaw("FIELD(category, 'lepas_kunci', 'include_driver')")
+            ->orderBy('price')
+            ->paginate(8);
         $tourpackages = Tourpackage::with('tourpackagecat:id,name,slug')->orderBy('price', 'asc')->take(3)->get();
         return inertia('Home', compact('blogs', 'carrentals', 'tourpackages'));
     }
 
     public function carrental()
     {
-        $carrentals = Carrental::filter(request(['carrentalcat']))
-            ->orderByRaw("
-                CASE 
-                    WHEN category = 'Lepas Kunci' AND price = (SELECT MIN(price) FROM carrentals WHERE category = 'Lepas Kunci') THEN 1
-                    WHEN category = 'Lepas Kunci' THEN 2
-                    WHEN category = 'Include Driver' AND price = (SELECT MIN(price) FROM carrentals WHERE category = 'Include Driver') THEN 3
-                    WHEN category = 'Include Driver' THEN 4
-                    ELSE 5
-                END
-            ")
+        $carrentals = Carrental::orderByRaw("FIELD(category, 'lepas_kunci', 'include_driver')")
+            ->orderBy('price')
             ->paginate(8);
 
         return inertia('Carrental', compact('carrentals'));
