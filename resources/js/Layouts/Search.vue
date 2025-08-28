@@ -89,7 +89,7 @@ const submit = () => {
             >
               <SearchCard
                 :results="searchResults?.carrentalResults"
-                title="Car Rentalss"
+                title="Car Rentals"
                 @close="close"
               />
             </div>
