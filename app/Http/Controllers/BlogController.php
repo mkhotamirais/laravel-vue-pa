@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Blogcat;
 use App\Models\Carrental;
+use App\Models\Tourpackage;
 use App\Models\User;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Support\Str;
@@ -71,9 +72,10 @@ class BlogController extends Controller implements HasMiddleware
     public function show(Blog $blog)
     {
         $blog = $blog->load('blogcat:id,name');
-        $latestBlogs = Blog::with('blogcat:id,name')->latest()->where('id', '!=', $blog->id)->take(4)->get();
-        $otherCarrentals = Carrental::latest()->take(4)->get();
-        return inertia('BlogDetail', compact('blog', 'latestBlogs', 'otherCarrentals'));
+        $latestBlogs = Blog::latest()->where('id', '!=', $blog->id)->take(4)->get();
+        $otherCarrentals = Carrental::latest()->take(3)->get();
+        $otherTourpackages = Tourpackage::latest()->take(3)->get();
+        return inertia('BlogDetail', compact('blog', 'latestBlogs', 'otherCarrentals', 'otherTourpackages'));
     }
 
     public function edit(Blog $blog)

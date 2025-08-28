@@ -7,6 +7,8 @@ defineProps({
   totalBlogs: Number,
   carrentals: Object,
   totalCarrentals: Number,
+  tourpackages: Object,
+  totalTourpackages: Number,
 });
 </script>
 
@@ -15,6 +17,7 @@ defineProps({
     <div class="mb-4">
       <p class="">Hi, {{ $page.props.auth.user.name }}</p>
     </div>
+
     <!-- Blog -->
     <div class="mb-4">
       <div class="mb-2">
@@ -41,8 +44,9 @@ defineProps({
         <h3 class="">{{ smartTrim(blog.title, 50) }}</h3>
       </Link>
     </div>
+
     <!-- Car Rental -->
-    <div>
+    <div class="mb-4">
       <div class="mb-2">
         <h2 class="h2">Car Rental ({{ totalCarrentals }})</h2>
         <Link :href="route('rental-mobil.index')" class="link"
@@ -67,6 +71,35 @@ defineProps({
           class="size-10 object-cover object-center mr-2"
         />
         <h3 class="">{{ smartTrim(carrental.name, 50) }}</h3>
+      </Link>
+    </div>
+
+    <!-- Tour Package -->
+    <div class="mb-4">
+      <div class="mb-2">
+        <h2 class="h2">Tour Package ({{ totalTourpackages }})</h2>
+        <Link :href="route('paket-wisata.index')" class="link"
+          >Manage Tour Package</Link
+        >
+      </div>
+      <Link
+        v-for="(tourpackage, i) in tourpackages"
+        :key="i"
+        :href="route('public.tourpackage.show', tourpackage)"
+        class="inline-flex items-center w-full p-1 border rounded mb-1 hover:underline"
+      >
+        <img
+          :src="
+            tourpackage?.banner
+              ? `/storage/${tourpackage.banner}`
+              : '/storage/images/logo-panoramaalam.png'
+          "
+          width="50"
+          height="50"
+          :alt="tourpackage.name"
+          class="size-10 object-cover object-center mr-2"
+        />
+        <h3 class="">{{ smartTrim(tourpackage.name, 50) }}</h3>
       </Link>
     </div>
   </div>

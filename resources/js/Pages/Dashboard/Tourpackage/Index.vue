@@ -4,11 +4,11 @@ import { Link, router, usePage } from "@inertiajs/vue3";
 import { smartTrim } from "@/functions";
 import PaginationInput from "@/Components/ui/PaginationInput.vue";
 
-defineProps({ blogs: Object, blogcats: Object, msg: String });
+defineProps({ tourpackages: Object, msg: String });
 
-const deleteBlog = (b) => {
+const deleteTourpackage = (tour) => {
   if (confirm("Apakah anda yakin?")) {
-    router.delete(route("blog.destroy", b));
+    router.delete(route("paket-wisata.destroy", tour));
   }
 };
 </script>
@@ -16,29 +16,31 @@ const deleteBlog = (b) => {
 <template>
   <div>
     <Head>
-      <title>{{ $t("blog.title") }}</title>
+      <title>{{ $t("tourpackage.title") }}</title>
       <meta head-key="description" name="description" />
     </Head>
-    <Link :href="route('blog.create')" class="btn w-fit mb-2">Create Blog</Link>
+    <Link :href="route('paket-wisata.create')" class="btn w-fit mb-2"
+      >Create Tour Package</Link
+    >
     <SessMsg :msg="msg" />
     <div class="flex flex-col md:flex-row gap-4 items-start">
-      <div v-if="blogs.data.length" class="w-full">
+      <div v-if="tourpackages.data.length" class="w-full">
         <div
-          v-for="(blog, i) in blogs.data"
+          v-for="(tourpackage, i) in tourpackages.data"
           :key="i"
           class="border border-gray-300 mb-1 rounded p-1 flex"
         >
           <Link
-            :href="route('public.blog.show', blog)"
+            :href="route('public.tourpackage.show', tourpackage)"
             class="w-4/5 flex items-center gap-2"
           >
             <img
               :src="
-                blog?.banner
-                  ? `/storage/${blog.banner}`
+                tourpackage?.banner
+                  ? `/storage/${tourpackage.banner}`
                   : '/storage/images/logo-panoramaalam.png'
               "
-              :alt="blog.banner"
+              :alt="tourpackage.banner"
               width="100"
               height="100"
               class="size-16 object-center object-contain bg-gray-100 border border-gray-200"
@@ -46,18 +48,18 @@ const deleteBlog = (b) => {
             <h3
               class="first-letter:capitalize sm:text-lg font-medium hover:underline"
             >
-              {{ smartTrim(blog.title, 60) }}
+              {{ smartTrim(tourpackage.name, 60) }}
             </h3>
           </Link>
           <div class="w-1/5 flex flex-col items-center">
             <Link
-              :href="route('blog.edit', blog)"
+              :href="route('paket-wisata.edit', tourpackage)"
               class="link text-primary py-1"
               >ubah</Link
             >
             <button
               type="button"
-              @click="deleteBlog(blog)"
+              @click="deleteTourpackage(tourpackage)"
               class="link text-danger py-1"
             >
               hapus
@@ -65,7 +67,7 @@ const deleteBlog = (b) => {
           </div>
         </div>
         <div>
-          <PaginationInput :paginator="blogs" />
+          <PaginationInput :paginator="tourpackages" />
         </div>
       </div>
       <div v-else class="w-full bg-white py-4 rounded-lg">

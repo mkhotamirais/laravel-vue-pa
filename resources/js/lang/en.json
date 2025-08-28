@@ -8,10 +8,15 @@
     "admin_menu": [
         {"label": "Dashboard", "url": "/dashboard", "name": "dashboard"},
         {"label": "Blog", "url": "/dashboard/blog", "name": "blog.index"},
+        {"label": "Blog Category", "url": "/dashboard/blog-category", "name": "blogcat.index"},
         {"label": "Create Blog", "url": "/dashboard/blog/create", "name": "blog.create"},
         {"label": "Car Rental", "url": "/dashboard/rental-mobil", "name": "rental-mobil.index"},
         {"label": "Create Car Rental", "url": "/dashboard/blog/rental-mobil/create", "name": "rental-mobil.create"},
-        {"label": "Blog Category", "url": "/dashboard/blog-category", "name": "blogcat.index"}
+        {"label": "Tour Package", "url": "/dashboard/paket-wisata", "name": "paket-wisata.index"},
+        {"label": "Tour Package Category", "url": "/dashboard/toupackagecat", "name": "tourpackagecat.index"},
+        {"label": "Tour Package Route", "url": "/dashboard/tourroute", "name": "tourroute.index"},
+        {"label": "Create Tour Package", "url": "/dashboard/blog/paket-wisata/create", "name": "paket-wisata.create"}
+
     ],
     "home": {
         "title": "The Best Tour Packages & Car Rentals in Lombok",
@@ -73,10 +78,25 @@
         "btn_all_carrentals": "All Car Rental",
         "btn_all_tourpackages": "All Tour Package",
         "btn_order_now": "Order Now",
-        "btn_latest_blogs": "Latest Blogs",
-        "btn_other_carrentals": "Other Car Rental",
-        "btn_carrental_terms": "Terms & Conditions",
-        "btn_carrental_info": "Informations"
-
+        "btn_chat": "Chat / Inquire via WhatsApp"
+    },
+    "others": {
+        "start_from": "Starting From",
+        "person": "Person",
+        "itinerary": "Travel Itinerary",
+        "terms": "Important Term",
+        "policy": "Policy",
+        "info": "Informations",
+        "price_detail": "Price Detail",
+        "route": "Route",
+        "latest_blogs": "Latest Blogs",
+        "other_carrentals": "Other Car Rental",
+        "other_tourpackages": "Other Tour Package",
+        "payment": {
+            "title": "Payment",
+            "bank_account": "BCA",
+            "bank_account_number": "0562123448",
+            "bank_account_name": "PT Panorama Alam Bahagia"
+        }
     }
 }

@@ -25,7 +25,7 @@ const submit = () => {
   <div>
     <Head title="Create Rental" />
     <form @submit.prevent="submit">
-      <ImageUpload @image="(e) => image(e)" />
+      <ImageUpload @image="(e) => image(e)" :error="form.errors.banner" />
       <Input
         label="Name"
         id="name"
@@ -66,15 +66,14 @@ const submit = () => {
         <option value="lepas_kunci">Lepas Kunci</option>
         <option value="include_driver">Include Driver</option>
       </Select>
-      <div class="flex items-center gap-1">
+      <div class="flex gap-2">
         <button type="submit" class="btn" :disabled="form.processing">
-          Submit
+          Tambah
         </button>
         <Link
           :href="route('rental-mobil.index')"
-          type="button"
-          class="btn !bg-gray-500"
-          >Back</Link
+          class="btn inline-block !bg-gray-500 hover:!bg-gray-600"
+          >Kembali</Link
         >
       </div>
     </form>

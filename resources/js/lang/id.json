@@ -8,10 +8,14 @@
     "admin_menu": [
         {"label": "Dashboard", "url": "/dashboard", "name": "dashboard"},
         {"label": "Blog", "url": "/dashboard/blog", "name": "blog.index"},
+        {"label": "Blog Kategori", "url": "/dashboard/blog-category", "name": "blogcat.index"},
         {"label": "Buat Blog", "url": "/dashboard/blog/create", "name": "blog.create"},
         {"label": "Rental Mobil", "url": "/dashboard/rental-mobil", "name": "rental-mobil.index"},
         {"label": "Buat Rental Mobil", "url": "/dashboard/blog/rental-mobil/create", "name": "rental-mobil.create"},
-        {"label": "Blog Kategori", "url": "/dashboard/blog-category", "name": "blog-category.index"}
+        {"label": "Paket Wisata", "url": "/dashboard/paket-wisata", "name": "paket-wisata.index"},
+        {"label": "Paket Wisata Kategori", "url": "/dashboard/toupackagecat", "name": "tourpackagecat.index"},
+        {"label": "Paket Wisata Rute", "url": "/dashboard/tourroute", "name": "tourroute.index"},
+        {"label": "Buat Paket Wisata", "url": "/dashboard/blog/paket-wisata/create", "name": "paket-wisata.create"}
     ],
     "home": {
         "title": "Paket Wisata & Sewa Mobil Terbaik di Lombok",
@@ -73,9 +77,25 @@
         "btn_all_carrentals": "Semua Rental Mobil",
         "btn_all_tourpackages": "Semua Paket Wisata",
         "btn_order_now": "Pesan Sekarang",
-        "btn_latest_blogs": "Blog Terbaru",
-        "btn_other_carrentals": "Rental Mobil Lainnya",
-        "btn_carrental_terms": "Syarat & Ketentuan",
-        "btn_carrental_info": "Informasi"
+        "btn_chat": "Pesan / Hubungi via WhatsApp"
+    },
+    "others": {
+        "start_from": "Mulai dari",
+        "person": "Orang",
+        "itinerary": "Itinerary Perjalanan",
+        "terms": "Syarat Khusus",
+        "policy": "Kebijakan",
+        "info": "Informasi",
+        "price_detail": "Detail Harga",
+        "route": "Rute",
+        "latest_blogs": "Blog Terbaru",
+        "other_carrentals": "Rental Mobil Lainnya",
+        "other_tourpackages": "Paket Wisata Lainnya",
+        "payment": {
+            "title": "Pembayaran",
+            "bank_account": "BCA",
+            "bank_account_number": "0562123448",
+            "bank_account_name": "PT Panorama Alam Bahagia"
+        }
     }
 }

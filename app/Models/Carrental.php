@@ -26,8 +26,8 @@ class Carrental extends Model
             $query->where('name', 'like', '%' . $search . '%');
         }
 
-        if ($filters['rentalcat'] ?? false) {
-            $query->where('category', 'like', '%' . request('rentalcat') . '%');
+        if ($filters['carrentalcat'] ?? false) {
+            $query->where('category', 'like', '%' . request('carrentalcat') . '%');
         }
     }
 }

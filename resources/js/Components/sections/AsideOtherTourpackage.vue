@@ -1,34 +1,34 @@
 <script setup>
 import { formatRupiah, smartTrim } from "@/functions";
-defineProps({ otherCarrentals: Object });
+defineProps({ otherTourpackages: Object });
 </script>
 
 <template>
   <div>
-    <h2 class="h2 text-2xl mb-4">{{ $t("others.other_carrentals") }}</h2>
+    <h2 class="h2 text-2xl mb-4">{{ $t("others.other_tourpackages") }}</h2>
     <Link
-      v-for="(or, i) in otherCarrentals"
+      v-for="(ot, i) in otherTourpackages"
       :key="i"
-      :href="route('public.carrental.show', or)"
+      :href="route('public.tourpackage.show', ot)"
       class="group flex gap-2 overflow-hidden mb-2 h-22"
     >
       <img
         :src="
-          or?.banner
-            ? `/storage/${or.banner}`
+          ot?.banner
+            ? `/storage/${ot.banner}`
             : `/storage/images/logo-panoramaalam.png`
         "
-        :alt="smartTrim(or.name, 60)"
+        :alt="smartTrim(ot.name, 60)"
         width="100"
         height="100"
         class="h-full w-1/3 object-cover object-center"
       />
       <div class="w-2/3 flex flex-col">
         <h3 class="group-hover:underline text-gray-600 font-medium capitalize">
-          {{ or.name }}
+          {{ ot.name }}
         </h3>
         <p class="text-lg font-medium">
-          {{ formatRupiah(or.price) }}
+          {{ formatRupiah(ot.price) }}
         </p>
       </div>
     </Link>

@@ -24,12 +24,12 @@ const submit = () => {
         >
           <div class="mb-4">
             <h1 class="h1 mb-2">login</h1>
-            <p>
+            <!-- <p>
               {{ $t("form.login_desc") }}
               <Link :href="route('register')" class="link">{{
                 $t("form.register")
               }}</Link>
-            </p>
+            </p> -->
           </div>
 
           <SessMsg :msg="form.errors.msg" :isError="true" />

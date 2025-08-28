@@ -1,9 +1,10 @@
 <script setup>
 import Subtitle from "@/Components/sections/Subtitle.vue";
 import BlogCard1 from "@/Components/sections/BlogCard1.vue";
-import CarrentalCard from "../Components/sections/CarrentalCard.vue";
+import CarrentalCard from "@/Components/sections/CarrentalCard.vue";
+import TourpackageCard from "@/Components/sections/TourpackageCard.vue";
 
-defineProps({ blogs: Object, carrentals: Object });
+defineProps({ blogs: Object, carrentals: Object, tourpackages: Object });
 </script>
 
 <template>
@@ -13,7 +14,7 @@ defineProps({ blogs: Object, carrentals: Object });
     >
       <div class="bg-gradient-to-b from-black/60 to-black/60">
         <div
-          class="container max-w-4xl text-white py-16 sm:py-20 flex flex-col items-start sm:items-center sm:text-center space-y-8"
+          class="container max-w-4xl text-white py-16 flex flex-col items-start sm:items-center sm:text-center space-y-8"
         >
           <h1 class="text-4xl sm:text-5xl font-bold">{{ $t("home.title") }}</h1>
           <p class="leading-relaxed">{{ $t("home.description") }}</p>
@@ -52,7 +53,11 @@ defineProps({ blogs: Object, carrentals: Object });
     <section class="py-16 bg-gray-100">
       <div class="container">
         <Subtitle top_title="tourpackage.top_title" title="tourpackage.title" />
-        <div>content</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div v-for="(item, i) in tourpackages" :key="i">
+            <TourpackageCard :item="item" />
+          </div>
+        </div>
         <Link :href="route('public.tourpackage')" class="btn-outline mt-8">{{
           $t("buttons.btn_all_tourpackages")
         }}</Link>

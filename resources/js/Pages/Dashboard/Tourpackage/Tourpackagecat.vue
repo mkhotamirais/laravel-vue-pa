@@ -4,7 +4,7 @@ import SessMsg from "@/Components/form/SessMsg.vue";
 import { router, useForm, usePage } from "@inertiajs/vue3";
 import { ref } from "vue";
 
-const props = defineProps({ blogcats: Object, msg: String });
+const props = defineProps({ tourpackagecats: Object, msg: String });
 
 const form = useForm({ name: "" });
 const editForm = useForm({ name: "" });
@@ -22,14 +22,14 @@ const cancelIsEdit = () => {
 };
 
 const submit = () => {
-  form.post(route("blogcat.store"), {
+  form.post(route("tourpackagecat.store"), {
     onSuccess: () => form.reset(),
     preserveScroll: true,
   });
 };
 
 const submitEdit = (ic) => {
-  editForm.put(route("blogcat.update", ic), {
+  editForm.put(route("tourpackagecat.update", ic), {
     onSuccess: () => {
       editForm.reset();
       cancelIsEdit();
@@ -40,14 +40,14 @@ const submitEdit = (ic) => {
 
 const deleteInfocat = (ic) => {
   if (confirm("Apakah kamu yakin?")) {
-    router.delete(route("blogcat.destroy", ic));
+    router.delete(route("tourpackagecat.destroy", ic));
   }
 };
 </script>
 
 <template>
   <div>
-    <Head title="Blog Category" />
+    <Head title="Tourpackage Category" />
 
     <SessMsg :msg="msg" />
 
@@ -67,9 +67,13 @@ const deleteInfocat = (ic) => {
       </form>
     </div>
 
-    <div v-if="blogcats.data.length">
+    <div v-if="tourpackagecats.data.length">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-        <div v-for="(ic, i) in blogcats.data" :key="i" class="shadow-md p-3">
+        <div
+          v-for="(ic, i) in tourpackagecats.data"
+          :key="i"
+          class="shadow-md p-3"
+        >
           <form @submit.prevent="submitEdit(ic)" v-if="isEdit === i" class="">
             <Input
               placeholder="Edit name"
@@ -104,7 +108,7 @@ const deleteInfocat = (ic) => {
     </div>
 
     <div v-else>
-      <i>Blog category tidak ditemukan</i>
+      <i>Tourpackage category tidak ditemukan</i>
     </div>
   </div>
 </template>

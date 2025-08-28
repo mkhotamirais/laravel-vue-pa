@@ -30,7 +30,7 @@ const submit = () => {
 <template>
   <div>
     <Head title="Update Blog" />
-    <form @submit.prevent="submit" class="py-4 max-w-lg">
+    <form @submit.prevent="submit" class="py-4">
       <ImageUpload @image="(e) => banner(e)" :oldBanner="blog.banner" />
       <Input
         label="Title"

@@ -67,15 +67,14 @@ const form = useForm({
         <option value="lepas_kunci">Lepas Kunci</option>
         <option value="include_driver">Include Driver</option>
       </Select>
-      <div class="flex items-center gap-1">
+      <div class="flex gap-2">
         <button type="submit" class="btn" :disabled="form.processing">
-          Save
+          Simpan
         </button>
         <Link
           :href="route('rental-mobil.index')"
-          type="button"
-          class="btn !bg-gray-500"
-          >Back</Link
+          class="btn inline-block !bg-gray-500 hover:!bg-gray-600"
+          >Kembali</Link
         >
       </div>
     </form>

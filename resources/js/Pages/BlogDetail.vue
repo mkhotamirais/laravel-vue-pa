@@ -2,13 +2,15 @@
 import { stripHtml, smartTrim, diffForHumans } from "@/functions";
 import { capitalize } from "vue";
 import BlogExcerpt from "@/Components/sections/BlogExcerpt.vue";
-import AsideLatestBlog from "../Components/sections/AsideLatestBlog.vue";
-import AsideOtherCarrental from "../Components/sections/AsideOtherCarrental.vue";
+import AsideLatestBlog from "@/Components/sections/AsideLatestBlog.vue";
+import AsideOtherCarrental from "@/Components/sections/AsideOtherCarrental.vue";
+import AsideOtherTourpackage from "@/Components/sections/AsideOtherTourpackage.vue";
 
 defineProps({
   blog: Object,
   latestBlogs: Object,
   otherCarrentals: Object,
+  otherTourpackages: Object,
 });
 </script>
 
@@ -26,7 +28,7 @@ defineProps({
     <section class="py-8">
       <div class="container">
         <div class="flex flex-col md:flex-row gap-8 items-start">
-          <article class="md:w-2/3 space-y-4">
+          <article class="w-full md:w-2/3 space-y-4">
             <h1 class="h1 sm:text-center">{{ blog.title }}</h1>
             <BlogExcerpt :blog="blog" class="sm:justify-center" />
             <img
@@ -49,9 +51,12 @@ defineProps({
               #{{ tag }}
             </span>
           </article>
-          <div class="md:w-1/3 sticky top-20 space-y-6">
+          <div
+            class="w-full md:w-1/3 sticky top-20 space-y-6 overflow-y-scroll h-[calc(100vh-6rem)]"
+          >
             <AsideLatestBlog :latestBlogs="latestBlogs" />
             <AsideOtherCarrental :otherCarrentals="otherCarrentals" />
+            <AsideOtherTourpackage :otherTourpackages="otherTourpackages" />
           </div>
         </div>
       </div>

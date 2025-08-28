@@ -5,20 +5,31 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Blogcat;
 use App\Models\Carrental;
-use Illuminate\Http\Request;
+use App\Models\Tourpackage;
+use App\Models\Tourpackagecat;
 
 class PublicController extends Controller
 {
     public function home()
     {
         $blogs = Blog::with('blogcat:id,name,slug')->latest()->take(4)->get();
-        $carrentals = Carrental::latest()->take(4)->get();
-        return inertia('Home', compact('blogs', 'carrentals'));
+        $carrentals = Carrental::orderByRaw("
+                CASE 
+                    WHEN category = 'Lepas Kunci' AND price = (SELECT MIN(price) FROM carrentals WHERE category = 'Lepas Kunci') THEN 1
+                    WHEN category = 'Lepas Kunci' THEN 2
+                    WHEN category = 'Include Driver' AND price = (SELECT MIN(price) FROM carrentals WHERE category = 'Include Driver') THEN 3
+                    WHEN category = 'Include Driver' THEN 4
+                    ELSE 5
+                END
+            ")
+            ->take(4)->get();
+        $tourpackages = Tourpackage::with('tourpackagecat:id,name,slug')->orderBy('price', 'asc')->take(3)->get();
+        return inertia('Home', compact('blogs', 'carrentals', 'tourpackages'));
     }
 
     public function carrental()
     {
-        $carrentals = Carrental::filter(request(['rentalcat']))
+        $carrentals = Carrental::filter(request(['carrentalcat']))
             ->orderByRaw("
                 CASE 
                     WHEN category = 'Lepas Kunci' AND price = (SELECT MIN(price) FROM carrentals WHERE category = 'Lepas Kunci') THEN 1
@@ -35,14 +46,18 @@ class PublicController extends Controller
 
     public function tourpackage()
     {
-        return inertia('Tourpackage');
+        $tourpackages = Tourpackage::filter(request(['tourpackagecat']))
+            ->with('tourpackagecat:id,name,slug')
+            ->latest()
+            ->paginate(6);
+        $tourpackagecats = Tourpackagecat::orderBy('name', 'asc')->get();
+        return inertia('Tourpackage', compact('tourpackages', 'tourpackagecats'));
     }
 
     public function blog()
     {
-        $blogs = Blog::with('blogcat:id,name,slug')
-            ->latest()->paginate(8);
-        $blogcats = Blogcat::latest()->get();
+        $blogs = Blog::with('blogcat:id,name,slug')->latest()->paginate(8);
+        $blogcats = Blogcat::orderBy('name', 'asc')->get();
         return inertia('Blog', compact('blogs', 'blogcats'));
     }
 

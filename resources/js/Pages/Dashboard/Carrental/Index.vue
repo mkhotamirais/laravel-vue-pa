@@ -1,6 +1,6 @@
 <script setup>
 import SessMsg from "@/Components/form/SessMsg.vue";
-// import PaginationInput from "@/Components/ui/PaginationInput.vue";
+import PaginationInput from "@/Components/ui/PaginationInput.vue";
 import { Link, router, usePage } from "@inertiajs/vue3";
 import { smartTrim, formatRupiah } from "@/functions";
 
@@ -77,6 +77,9 @@ const chooseCategory = (cat) => {
               hapus
             </button>
           </div>
+        </div>
+        <div>
+          <PaginationInput :paginator="carrentals" />
         </div>
       </div>
       <div v-else class="w-full bg-white py-4 rounded-lg">

@@ -2,6 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Blog;
+use App\Models\Carrental;
+use App\Models\Tourpackage;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -41,26 +44,30 @@ class HandleInertiaRequests extends Middleware
                 'user' => fn() => $request->user()
                     ? $request->user()->only('id', 'name', 'email')
                     : null,
-            ]
-            // 'searchResults' => function () use ($request) {
-            //     $query = $request->query('q');
+            ],
+            'searchResults' => function () use ($request) {
+                $query = $request->query('q');
 
-            //     if ($query) {
-            //         return [
-            //             'rentalResults' => Rental::filter(['q' => $query])
-            //                 ->orderBy('name', 'asc')
-            //                 ->get(['id', 'banner', 'name', 'slug']),
-            //             'blogResults' => Blog::filter(['q' => $query])
-            //                 ->orderBy('title', 'asc')
-            //                 ->get(['id', 'title', 'banner', 'slug']),
-            //         ];
-            //     }
+                if ($query) {
+                    return [
+                        'blogResults' => Blog::filter(['q' => $query])
+                            ->orderBy('title', 'asc')
+                            ->get(['id', 'title', 'banner', 'slug']),
+                        'carrentalResults' => Carrental::filter(['q' => $query])
+                            ->orderBy('name', 'asc')
+                            ->get(['id', 'banner', 'name', 'slug']),
+                        'tourpackageResults' => Tourpackage::filter(['q' => $query])
+                            ->orderBy('name', 'asc')
+                            ->get(['id', 'banner', 'name', 'slug']),
+                    ];
+                }
 
-            //     return [
-            //         'rentalResulst' => [],
-            //         'blogResults' => [],
-            //     ];
-            // },
+                return [
+                    'carrentalResulsts' => [],
+                    'blogResults' => [],
+                    'tourpackageResults' => []
+                ];
+            },
         ];
     }
 }

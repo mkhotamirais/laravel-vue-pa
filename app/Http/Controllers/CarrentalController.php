@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Carrental;
+use App\Models\Tourpackage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -20,7 +21,7 @@ class CarrentalController extends Controller
     public function index(Request $request)
     {
         $title = "Car Rental";
-        $carrentals = Carrental::filter(request(['rentalcat']))
+        $carrentals = Carrental::filter(request(['carrentalcat']))
             ->orderByRaw("
                 CASE 
                     WHEN category = 'Lepas Kunci' AND price = (SELECT MIN(price) FROM carrentals WHERE category = 'Lepas Kunci') THEN 1
@@ -67,8 +68,10 @@ class CarrentalController extends Controller
     public function show(Carrental $carrental)
     {
         $otherCarrentals = Carrental::where('id', '!=', $carrental->id)->take(4)->get();
-        $latestBlogs = Blog::latest()->take(4)->get();
-        return inertia('CarrentalDetail', compact('carrental', 'otherCarrentals', 'latestBlogs'));
+        $latestBlogs = Blog::latest()->take(3)->get();
+        $otherTourpackages = Tourpackage::latest()->take(3)->get();
+
+        return inertia('CarrentalDetail', compact('carrental', 'otherCarrentals', 'latestBlogs', 'otherTourpackages'));
     }
 
     public function edit(Carrental $carrental)

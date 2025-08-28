@@ -15,7 +15,7 @@ const categories = [
 ];
 
 const chooseCategory = (cat) => {
-  router.get(route("public.carrental", { rentalcat: cat }));
+  router.get(route("public.carrental", { carrentalcat: cat }));
 };
 </script>
 

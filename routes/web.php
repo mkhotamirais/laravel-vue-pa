@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CarrentalController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\TourpackageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -13,6 +14,7 @@ Route::get('/rental-mobil', [PublicController::class, 'carrental'])->name('publi
 Route::get('/rental-mobil/{carrental}', [CarrentalController::class, 'show'])->name('public.carrental.show');
 
 Route::get('/paket-wisata', [PublicController::class, 'tourpackage'])->name('public.tourpackage');
+Route::get('/paket-wisata/{tourpackage}', [TourpackageController::class, 'show'])->name('public.tourpackage.show');
 
 Route::get('/blog', [PublicController::class, 'blog'])->name('public.blog');
 Route::get('/blog/{blog}', [BlogController::class, 'show'])->name('public.blog.show');

@@ -10,7 +10,7 @@ const chooseCategory = (cat) => {
 </script>
 
 <template>
-  <div class="shadow-md rounded overflow-hidden">
+  <div class="shadow-md rounded overflow-hidden bg-white">
     <Link :href="route('public.carrental.show', carrental)">
       <img
         :src="
@@ -24,11 +24,11 @@ const chooseCategory = (cat) => {
         class="w-full object-cover object-center"
       />
     </Link>
-    <div class="space-y-2 p-4">
+    <div class="space-y-3 p-4">
       <div>
         <Link
           :href="route('public.carrental.show', carrental)"
-          class="hover:underline"
+          class="hover:underline block mb-1"
         >
           <h3 class="text-lg font-medium capitalize">{{ carrental.name }}</h3>
         </Link>
@@ -39,7 +39,11 @@ const chooseCategory = (cat) => {
           {{ carrental.category.replace("_", " ") }}
         </button>
       </div>
-      <p class="text-2xl font-semibold">{{ formatRupiah(carrental.price) }}</p>
+
+      <p class="text-2xl font-semibold">
+        {{ formatRupiah(carrental.price) }}
+      </p>
+
       <a
         :href="$t('links.wa.url')"
         class="w-full py-2 bg-primary hover:bg-primary/90 transition-all text-white rounded-full inline-flex items-center justify-center gap-2"

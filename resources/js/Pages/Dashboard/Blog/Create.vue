@@ -34,7 +34,7 @@ const submit = () => {
   <div>
     <Head title="Create Blog" />
     <form @submit.prevent="submit" class="py-4">
-      <ImageUpload @image="(e) => banner(e)" />
+      <ImageUpload @image="(e) => banner(e)" :error="form.errors.banner" />
       <Input
         label="Title"
         id="title"
