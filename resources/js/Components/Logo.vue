@@ -9,5 +9,6 @@
       height="100"
       class="w-auto h-14"
     />
+    panoramaalam
   </Link>
 </template>
