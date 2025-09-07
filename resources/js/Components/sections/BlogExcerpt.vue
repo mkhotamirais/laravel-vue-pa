@@ -7,7 +7,7 @@ import { diffForHumans } from "@/functions";
 <template>
   <div class="text-sm text-gray-500 flex flex-wrap gap-2">
     <Link
-      :href="route('public.blog.category', blog.blogcat)"
+      :href="route('public.blog.category', blog.blogcat.slug)"
       class="link capitalize"
     >
       {{ blog.blogcat?.name || "Rentallombok Blog" }}

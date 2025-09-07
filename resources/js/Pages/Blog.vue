@@ -53,7 +53,7 @@ defineProps({ blogs: Object, blogcats: Object });
               class="list-inside list-disc"
             >
               <Link
-                :href="route('public.blog.category', bc)"
+                :href="route('public.blog.category', bc.slug)"
                 class="py-1 hover:underline inline-block"
               >
                 {{ bc.name }}

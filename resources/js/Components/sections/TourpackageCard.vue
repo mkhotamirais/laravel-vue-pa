@@ -34,7 +34,7 @@ const chooseCategory = (cat) => {
           <h3 class="text-lg font-medium capitalize">{{ item.name }}</h3>
         </Link>
         <button
-          @click="chooseCategory(item.tourpackagecat)"
+          @click="chooseCategory(item.tourpackagecat.slug)"
           class="badge capitalize w-fit"
         >
           {{ item.tourpackagecat.name }}
