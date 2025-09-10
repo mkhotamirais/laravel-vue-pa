@@ -72,7 +72,8 @@ class GenerateSitemap extends Command
         });
 
         // Simpan sitemap.xml di folder 'public'
-        $sitemap->writeToFile(public_path('sitemap.xml'));
+        // $sitemap->writeToFile(public_path('sitemap.xml'));
+        $sitemap->writeToFile('/home/panoram6/public_html/sitemap.xml');
 
         $this->info('Sitemap generated successfully!');
     }
