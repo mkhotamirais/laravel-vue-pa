@@ -21,7 +21,7 @@ const mainMenu = computed(() => messages.value[locale.value].main_menu);
         </address>
       </div>
       <div>
-        <h3 class="h3 py-2">{{ $t("footer.links") }}</h3>
+        <h4 class="h3 py-2">{{ $t("footer.links") }}</h4>
         <nav class="flex flex-col">
           <Link
             v-for="(m, i) in mainMenu"
@@ -34,7 +34,7 @@ const mainMenu = computed(() => messages.value[locale.value].main_menu);
         </nav>
       </div>
       <div>
-        <h3 class="h3 py-2">{{ $t("footer.other_links") }}</h3>
+        <h4 class="h3 py-2">{{ $t("footer.other_links") }}</h4>
         <nav class="flex flex-col">
           <!-- <Link :href="route('login')" class="footer-link"> Login </Link> -->
           <a :href="$t('links.rl.url')" class="footer-link">{{
@@ -43,7 +43,7 @@ const mainMenu = computed(() => messages.value[locale.value].main_menu);
         </nav>
       </div>
       <div>
-        <h3 class="h3 py-2">{{ $t("links.contact_us_btn") }}</h3>
+        <h4 class="h3 py-2">{{ $t("links.contact_us_btn") }}</h4>
         <nav class="flex flex-col">
           <a :href="$t('links.wa.url')" class="footer-link">{{
             $t("links.wa.label")
