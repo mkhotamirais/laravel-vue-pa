@@ -17,7 +17,7 @@ const mainMenu = computed(() => messages.value[locale.value].main_menu);
         </div>
         <p class="text-text">{{ $t("footer.moto") }}</p>
         <address class="mt-4 text-sm block text-gray-500">
-          {{ $t("footer.address") }}
+          Almat {{ $t("footer.address") }}
         </address>
       </div>
       <div>
