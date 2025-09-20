@@ -71,7 +71,7 @@ class BlogController extends Controller implements HasMiddleware
 
     public function show(Blog $blog)
     {
-        $blog = $blog->load('blogcat:id,name');
+        $blog = $blog->load('blogcat:id,name,slug');
         $latestBlogs = Blog::latest()->where('id', '!=', $blog->id)->take(4)->get();
         $otherCarrentals = Carrental::latest()->take(3)->get();
         $otherTourpackages = Tourpackage::latest()->take(3)->get();

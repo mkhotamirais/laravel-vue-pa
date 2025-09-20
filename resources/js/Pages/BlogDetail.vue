@@ -17,11 +17,11 @@ defineProps({
 <template>
   <div>
     <Head>
-      <title>{{ smartTrim(capitalize(blog.title), 40) }}</title>
+      <title>{{ smartTrim(capitalize(blog.title), 60) }}</title>
       <meta
         head-key="description"
         name="description"
-        :content="smartTrim(stripHtml(blog.content), 145)"
+        :content="smartTrim(stripHtml(blog.content), 150)"
       />
     </Head>
 
@@ -40,7 +40,7 @@ defineProps({
               alt=""
               width="500"
               height="500"
-              class="rounded w-full"
+              class="rounded w-full h-120 object-cover object-center"
             />
             <p v-html="blog.content" class="text-content"></p>
             <span

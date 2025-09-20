@@ -77,7 +77,7 @@ class TourpackageController extends Controller
 
     public function show(Tourpackage $tourpackage)
     {
-        $tourpackage = $tourpackage->load('tourimages', 'tourroutes:id,name', 'tourpackagecat:id,name');
+        $tourpackage = $tourpackage->load('tourimages', 'tourroutes:id,name,slug', 'tourpackagecat:id,name,slug');
         $otherTourpackages = Tourpackage::latest()->where('id', '!=', $tourpackage->id)->take(4)->get();
         $latestBlogs = Blog::latest()->take(3)->get();
         $otherCarrentals = Carrental::latest()->take(3)->get();

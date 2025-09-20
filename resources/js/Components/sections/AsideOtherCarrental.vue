@@ -27,6 +27,9 @@ defineProps({ otherCarrentals: Object });
         <h3 class="group-hover:underline text-gray-600 font-medium capitalize">
           {{ or.name }}
         </h3>
+        <p class="badge w-fit">
+          {{ or.category.replace("_", " ") }}
+        </p>
         <p class="text-lg font-medium">
           {{ formatRupiah(or.price) }}
         </p>
