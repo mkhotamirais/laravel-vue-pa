@@ -6,7 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Carrental extends Model
 {
-    protected $fillable = ["name", "slug", "price", "policy", "information", "banner", "category"];
+    protected $fillable = [
+        "name",
+        "slug",
+        "price",
+        "policy",
+        "information",
+        "banner",
+        "category",
+        'meta_title',
+        'meta_description',
+        'meta_keywords'
+    ];
 
     public function getRouteKeyName()
     {

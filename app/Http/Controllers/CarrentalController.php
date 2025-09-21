@@ -45,6 +45,9 @@ class CarrentalController extends Controller
             'policy' => 'required',
             'information' => 'nullable',
             'category' => 'required|in:lepas_kunci,include_driver',
+            'meta_title' => 'nullable|string|max:60',
+            'meta_description' => 'nullable|string|max:160',
+            'meta_keywords' => 'nullable|string',
         ]);
 
         $fields['slug'] = Str::slug($fields['name']);
@@ -83,6 +86,9 @@ class CarrentalController extends Controller
             'policy' => 'required',
             'information' => 'nullable',
             'category' => 'required|in:lepas_kunci,include_driver',
+            'meta_title' => 'nullable|string|max:60',
+            'meta_description' => 'nullable|string|max:160',
+            'meta_keywords' => 'nullable|string',
         ]);
 
         $fields['slug'] = Str::slug($fields['name']);

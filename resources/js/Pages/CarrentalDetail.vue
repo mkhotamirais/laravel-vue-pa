@@ -21,11 +21,34 @@ const chooseCategory = (cat) => {
 
 <template>
   <div>
-    <Head
-      :title="`Sewa Mobil ${smartTrim(capitalize(carrental.name))} ${capitalize(
-        carrental.category.replace('_', ' ')
-      )} Lombok`"
-    />
+    <Head>
+      <title>
+        {{
+          carrental?.meta_title ||
+          `Sewa Mobil ${smartTrim(capitalize(carrental.name))} ${capitalize(
+            carrental.category.replace("_", " ")
+          )} Lombok`
+        }}
+      </title>
+      <meta
+        head-key="description"
+        name="description"
+        :content="
+          carrental?.meta_description ||
+          smartTrim(stripHtml(blog.content), 150) ||
+          $t('home.description')
+        "
+      />
+      <meta
+        head-key="keywords"
+        name="keywords"
+        :content="
+          carrental?.meta_keywords ||
+          carrental?.tags ||
+          $t('home.meta_keywords')
+        "
+      />
+    </Head>
     <section class="py-8">
       <div class="container">
         <div class="flex flex-col md:flex-row gap-8 items-start">

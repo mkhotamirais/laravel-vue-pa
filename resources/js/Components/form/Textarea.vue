@@ -12,8 +12,6 @@ defineProps({
   maxlength: String,
   error: String,
 });
-
-const showPass = ref(false);
 </script>
 
 <template>
@@ -27,12 +25,10 @@ const showPass = ref(false);
           <i :class="`fa-solid fa-${icon}`"></i>
         </span>
       </div>
-      <input
+      <textarea
         :id="id"
         :name="id"
-        :type="type === 'password' ? (showPass ? 'text' : 'password') : type"
         :placeholder="placeholder"
-        :max="max"
         :maxlength="maxlength"
         v-model="model"
         class="border block w-full rounded-md py-2 pr-3 pl-9 text-sm !text-slate-700 dark:text-slate-200 border-slate-300 outline-0 focus:ring-1 focus:ring-inset focus:ring-indigo-400 focus:border-indigo-400 plaholder:text-slate-400"
@@ -41,14 +37,6 @@ const showPass = ref(false);
           'pr-12': type === 'password',
         }"
       />
-      <button
-        @click="showPass = !showPass"
-        v-show="type === 'password'"
-        type="button"
-        class="text-primary font-semibold px-2 text-xs absolute right-0 top-0 bottom-0 flex items-center"
-      >
-        {{ showPass ? "Hide" : "Show" }}
-      </button>
     </div>
     <p v-if="error" class="!text-danger">
       <small>{{ error }}</small>

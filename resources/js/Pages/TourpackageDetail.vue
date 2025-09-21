@@ -33,7 +33,31 @@ const chooseCategory = (cat) => {
 
 <template>
   <div>
-    <Head :title="`${smartTrim(capitalize(tourpackage.name))}`" />
+    <Head>
+      <title>
+        {{
+          tourpackage.meta_title || smartTrim(capitalize(tourpackage.title), 60)
+        }}
+      </title>
+      <meta
+        head-key="description"
+        name="description"
+        :content="
+          tourpackage?.meta_description ||
+          smartTrim(stripHtml(tourpackage.content), 150) ||
+          $t('home.description')
+        "
+      />
+      <meta
+        head-key="keywords"
+        name="keywords"
+        :content="
+          tourpackage?.meta_keywords ||
+          tourpackage?.tags ||
+          $t('home.meta_keywords')
+        "
+      />
+    </Head>
     <section class="py-8">
       <div class="container">
         <div class="flex flex-col md:flex-row gap-8 items-start">

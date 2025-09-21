@@ -17,11 +17,22 @@ defineProps({
 <template>
   <div>
     <Head>
-      <title>{{ smartTrim(capitalize(blog.title), 60) }}</title>
+      <title>
+        {{ blog.meta_title || smartTrim(capitalize(blog.title), 60) }}
+      </title>
       <meta
         head-key="description"
         name="description"
-        :content="smartTrim(stripHtml(blog.content), 150)"
+        :content="
+          blog?.meta_description ||
+          smartTrim(stripHtml(blog.content), 150) ||
+          $t('home.description')
+        "
+      />
+      <meta
+        head-key="keywords"
+        name="keywords"
+        :content="blog?.meta_keywords || blog?.tags || $t('home.meta_keywords')"
       />
     </Head>
 

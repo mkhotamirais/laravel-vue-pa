@@ -55,6 +55,9 @@ class BlogController extends Controller implements HasMiddleware
             'tags' => 'nullable|string',
             'blogcat_id' => 'required|integer|exists:blogcats,id',
             'banner' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'meta_title' => 'nullable|string|max:60',
+            'meta_description' => 'nullable|string|max:160',
+            'meta_keywords' => 'nullable|string',
         ]);
 
         $fields['slug'] = Str::slug($fields['title']);
@@ -96,6 +99,9 @@ class BlogController extends Controller implements HasMiddleware
             'content' => 'required|string',
             'tags' => 'nullable|string',
             'banner' => 'nullable|file|max:2084|mimes:jpg,jpeg,png,webp',
+            'meta_title' => 'nullable|string|max:60',
+            'meta_description' => 'nullable|string|max:160',
+            'meta_keywords' => 'nullable|string',
         ]);
 
         if ($request->hasFile('banner')) {

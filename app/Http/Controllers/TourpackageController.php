@@ -50,6 +50,9 @@ class TourpackageController extends Controller
             'banner' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:1024',
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'tourpackagecat_id' => 'required|integer|exists:tourpackagecats,id',
+            'meta_title' => 'nullable|string|max:60',
+            'meta_description' => 'nullable|string|max:160',
+            'meta_keywords' => 'nullable|string',
         ]);
 
         $slug = Str::slug($fields['name']);
@@ -115,6 +118,9 @@ class TourpackageController extends Controller
             'delete_images' => 'nullable|array',
             'delete_images.*' => 'exists:tourimages,id',
             'tourpackagecat_id' => 'required|integer|exists:tourpackagecats,id',
+            'meta_title' => 'nullable|string|max:60',
+            'meta_description' => 'nullable|string|max:160',
+            'meta_keywords' => 'nullable|string',
         ]);
 
         $slug = Str::slug($fields['name']);

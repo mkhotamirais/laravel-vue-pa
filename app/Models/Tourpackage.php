@@ -23,7 +23,9 @@ class Tourpackage extends Model
         'banner',
         'images' => 'nullable|array',
         'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        // 'user_id'
+        'meta_title',
+        'meta_description',
+        'meta_keywords'
     ];
 
     public function getRouteKeyName()

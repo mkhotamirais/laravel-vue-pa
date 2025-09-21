@@ -24,6 +24,9 @@ const form = useForm({
   tourpackagecat_id: null,
   tourroutes: [],
   images: [],
+  meta_title: null,
+  meta_description: null,
+  meta_keywords: null,
 });
 
 const banner = (e) => (form.banner = e);
@@ -171,6 +174,41 @@ const submit = () => {
         <option value="active">Active</option>
         <option value="inactive">Inactive</option>
       </Select>
+
+      <div class="mt-4">
+        <p>
+          <b>
+            Field Metadata opsional, jika tidak diisi maka akan diisi dengan
+            isian default
+          </b>
+        </p>
+        <Input
+          label="Meta Title"
+          id="meta_title"
+          icon="heading"
+          maxlength="60"
+          placeholder="Meta Title.."
+          v-model="form.meta_title"
+          :error="form.errors.meta_title"
+        />
+        <Textarea
+          label="Meta Description"
+          id="meta_description"
+          icon="paragraph"
+          maxlength="160"
+          placeholder="Meta Description.."
+          v-model="form.meta_description"
+          :error="form.errors.meta_description"
+        />
+        <Input
+          label="Meta Keywords"
+          id="meta_keywords"
+          icon="tags"
+          placeholder="Keyword 1, Keyword 2, Keyword 3, ..."
+          v-model="form.meta_keywords"
+          :error="form.errors.meta_keywords"
+        />
+      </div>
 
       <div class="flex gap-2">
         <button type="submit" class="btn" :disabled="form.processing">

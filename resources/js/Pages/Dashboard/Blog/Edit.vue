@@ -1,5 +1,6 @@
 <script setup>
 import Input from "@/Components/form/Input.vue";
+import Textarea from "@/Components/form/Textarea.vue";
 import TextareaCke from "@/Components/form/TextareaCke.vue";
 import Select from "@/Components/form/Select.vue";
 import ImageUpload from "@/Components/form/ImageUpload.vue";
@@ -14,6 +15,9 @@ const form = useForm({
   content: props.blog.content,
   tags: props.blog.tags,
   banner: null,
+  meta_title: props.blog.meta_title,
+  meta_description: props.blog.meta_description,
+  meta_keywords: props.blog.meta_keywords,
   _method: "PATCH",
 });
 
@@ -66,6 +70,40 @@ const submit = () => {
         v-model="form.tags"
         :error="form.errors.tags"
       />
+      <div class="mt-4">
+        <p>
+          <b>
+            Field Metadata opsional, jika tidak diisi maka akan diisi dengan
+            isian default
+          </b>
+        </p>
+        <Input
+          label="Meta Title"
+          id="meta_title"
+          icon="heading"
+          maxlength="60"
+          placeholder="Meta Title.."
+          v-model="form.meta_title"
+          :error="form.errors.meta_title"
+        />
+        <Textarea
+          label="Meta Description"
+          id="meta_description"
+          icon="paragraph"
+          maxlength="160"
+          placeholder="Meta Description.."
+          v-model="form.meta_description"
+          :error="form.errors.meta_description"
+        />
+        <Input
+          label="Meta Keywords"
+          id="meta_keywords"
+          icon="tags"
+          placeholder="Keyword 1, Keyword 2, Keyword 3, ..."
+          v-model="form.meta_keywords"
+          :error="form.errors.meta_keywords"
+        />
+      </div>
       <div class="flex gap-2">
         <button type="submit" class="btn" :disabled="form.processing">
           Simpan
