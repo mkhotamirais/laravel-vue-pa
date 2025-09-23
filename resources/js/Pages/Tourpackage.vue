@@ -22,7 +22,19 @@ const chooseCategory = (cat) => {
         name="description"
         :content="$t('tourpackage.description')"
       />
+      <!-- og -->
+      <meta
+        head-key="og:title"
+        property="og:title"
+        :content="$t('tourpackage.title')"
+      />
+      <meta
+        head-key="og:description"
+        property="og:description"
+        :content="$t('tourpackage.description')"
+      />
     </Head>
+
     <Hero
       :top_title="'tourpackage.top_title'"
       :title="'tourpackage.title'"

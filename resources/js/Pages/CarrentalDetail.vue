@@ -48,6 +48,37 @@ const chooseCategory = (cat) => {
           $t('home.meta_keywords')
         "
       />
+
+      <!-- og -->
+      <meta
+        head-key="og:title"
+        property="og:title"
+        :content="
+          carrental?.meta_title ||
+          `Sewa Mobil ${smartTrim(capitalize(carrental.name))} ${capitalize(
+            carrental.category.replace('_', ' ')
+          )} Lombok`
+        "
+      />
+      <meta
+        head-key="og:description"
+        property="og:description"
+        :content="
+          carrental?.meta_description ||
+          smartTrim(stripHtml(blog.content), 150) ||
+          $t('home.description')
+        "
+      />
+      <meta head-key="og:type" property="og:type" content="product" />
+      <meta
+        head-key="og:image"
+        property="og:image"
+        :content="
+          carrental?.banner
+            ? `/storage/${carrental.banner}`
+            : '/storage/images/logo-panoramaalam.png'
+        "
+      />
     </Head>
     <section class="py-8">
       <div class="container">

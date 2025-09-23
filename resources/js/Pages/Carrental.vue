@@ -28,6 +28,19 @@ const chooseCategory = (cat) => {
         name="description"
         :content="$t('carrental.description')"
       />
+
+      <!-- og -->
+      <meta
+        head-key="og:title"
+        property="og:title"
+        :content="$t('carrental.title')"
+      />
+      <meta
+        head-key="og:description"
+        property="og:description"
+        :content="$t('carrental.description')"
+      />
+      <meta head-key="og:type" property="og:type" content="product.group" />
     </Head>
     <Hero
       :top_title="'carrental.top_title'"

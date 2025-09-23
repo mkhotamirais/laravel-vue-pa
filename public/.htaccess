@@ -1,3 +1,18 @@
+# Prerender.io Dynamic Rendering
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Jika permintaan datang dari bot
+  RewriteCond %{HTTP_USER_AGENT} (googlebot|bingbot|slurp|duckduckbot|yandexbot|baidubot|facebookexternalhit|linkedinbot|twitterbot|pinterestbot) [NC]
+  RewriteCond %{QUERY_STRING} !_prerender [NC]
+  RewriteRule ^(?!assets\/)(.*)$ https://service.prerender.io/https://%{HTTP_HOST}/$1 [L,P,E=PRERENDER_TOKEN:1rZYuprfyJ2pkFeOJjOp]
+
+  # Jika permintaan dari Prerender.io sendiri untuk render (agar tidak looping)
+  RewriteCond %{HTTP_USER_AGENT} ^Prerender [NC]
+  RewriteRule ^ - [L]
+</IfModule>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes

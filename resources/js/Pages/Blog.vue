@@ -16,6 +16,18 @@ defineProps({ blogs: Object, blogcats: Object });
         name="description"
         :content="$t('blog.description')"
       />
+
+      <!-- og -->
+      <meta
+        head-key="og:title"
+        property="og:title"
+        :content="$t('blog.title')"
+      />
+      <meta
+        head-key="og:description"
+        property="og:description"
+        :content="$t('blog.description')"
+      />
     </Head>
     <Hero
       :top_title="'blog.top_title'"

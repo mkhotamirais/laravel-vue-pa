@@ -57,6 +57,34 @@ const chooseCategory = (cat) => {
           $t('home.meta_keywords')
         "
       />
+
+      <!-- og -->
+      <meta
+        head-key="og:title"
+        property="og:title"
+        :content="
+          tourpackage.meta_title || smartTrim(capitalize(tourpackage.title), 60)
+        "
+      />
+      <meta
+        head-key="og:description"
+        property="og:description"
+        :content="
+          tourpackage?.meta_description ||
+          smartTrim(stripHtml(tourpackage.content), 150) ||
+          $t('home.description')
+        "
+      />
+      <meta head-key="og:type" property="og:type" content="article" />
+      <meta
+        head-key="og:image"
+        property="og:image"
+        :content="
+          tourpackage?.banner
+            ? `/storage/${item.banner}`
+            : '/storage/images/logo-panoramaalam.png'
+        "
+      />
     </Head>
     <section class="py-8">
       <div class="container">

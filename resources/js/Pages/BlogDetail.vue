@@ -25,7 +25,7 @@ defineProps({
         name="description"
         :content="
           blog?.meta_description ||
-          smartTrim(stripHtml(blog.content), 150) ||
+          smartTrim(stripHtml(blog.content), 160) ||
           $t('home.description')
         "
       />
@@ -33,6 +33,32 @@ defineProps({
         head-key="keywords"
         name="keywords"
         :content="blog?.meta_keywords || blog?.tags || $t('home.meta_keywords')"
+      />
+
+      <!-- og -->
+      <meta
+        head-key="og:title"
+        property="og:title"
+        :content="blog.meta_title || smartTrim(capitalize(blog.title), 60)"
+      />
+      <meta
+        head-key="og:description"
+        property="og:description"
+        :content="
+          blog?.meta_description ||
+          smartTrim(stripHtml(blog.content), 160) ||
+          $t('home.description')
+        "
+      />
+      <meta head-key="og:type" property="og:type" content="article" />
+      <meta
+        head-key="og:image"
+        property="og:image"
+        :content="
+          blog?.banner
+            ? `/storage/${blog.banner}`
+            : '/storage/images/logo-panoramaalam.png'
+        "
       />
     </Head>
 
