@@ -3,8 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Symfony\Component\HttpFoundation\Response;
 
 class PrerenderMiddleware
@@ -14,54 +14,47 @@ class PrerenderMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): Response
     {
-        // Daftar user agent bot yang ingin kita prerender
-        $bots = [
-            'googlebot',
-            'bingbot',
-            'slurp',
-            'duckduckbot',
-            'yandexbot',
-            'baidubot',
-            'facebookexternalhit',
-            'linkedinbot',
-            'twitterbot',
-            'pinterestbot',
-            'slackbot',
-            'whatsapp'
-        ];
+        $userAgent = $request->header('User-Agent');
 
-        $userAgent = strtolower($request->header('User-Agent'));
-        $isBot = false;
+        // Daftar bot yang ingin kita alihkan ke Prerender.io
+        $crawlers = ['googlebot', 'bingbot', 'slurp', 'baidubot', 'yandex', 'facebookexternalhit', 'twitterbot'];
 
-        foreach ($bots as $bot) {
-            if (strpos($userAgent, $bot) !== false) {
-                $isBot = true;
-                break;
-            }
+        // Jika User-Agent adalah Prerender.io atau bukan dari bot, lewati middleware ini.
+        // Ini untuk mencegah loop tak terbatas dan memastikan pengguna biasa melihat halaman normal.
+        if (str_contains($userAgent, 'Prerender') || !$this->isCrawler($userAgent, $crawlers)) {
+            return $next($request);
         }
 
-        // Jika user agent adalah bot DAN bukan permintaan dari Prerender.io sendiri
-        if ($isBot && strpos($userAgent, 'prerender') === false) {
-            $client = new Client();
-            $url = 'https://service.prerender.io/' . urlencode($request->fullUrl());
+        // Tentukan URL Prerender.io.
+        // Ganti 'YOUR_TOKEN' jika Anda menggunakan paket berbayar.
+        $prerenderUrl = 'https://service.prerender.io/https://' . $request->getHost() . $request->getRequestUri();
+        // Untuk paket berbayar:
+        // $prerenderUrl = 'https://service.prerender.io/YOUR_TOKEN/https://' . $request->getHost() . $request->getRequestUri();
 
-            // Tambahkan token jika Anda menggunakan versi berbayar
-            // $url = 'https://service.prerender.io/YOUR_TOKEN/' . urlencode($request->fullUrl());
+        // Lakukan permintaan GET ke Prerender.io
+        $response = Http::get($prerenderUrl);
 
-            try {
-                $response = $client->get($url, ['http_errors' => false]);
-
-                // Mengembalikan response dari Prerender.io
-                return response($response->getBody(), $response->getStatusCode())
-                    ->withHeaders($response->getHeaders());
-            } catch (\Exception $e) {
-                // Jika terjadi error, lanjutkan ke request normal
-                return $next($request);
-            }
+        // Jika permintaan berhasil, kembalikan konten yang sudah dirender.
+        if ($response->successful()) {
+            return response($response->body(), $response->status());
         }
 
+        // Jika gagal, biarkan permintaan berlanjut ke alur normal.
         return $next($request);
+    }
+
+    /**
+     * Periksa apakah User-Agent adalah salah satu crawler yang terdaftar.
+     */
+    protected function isCrawler(string $userAgent, array $crawlers): bool
+    {
+        foreach ($crawlers as $crawler) {
+            if (stripos($userAgent, $crawler) !== false) {
+                return true;
+            }
+        }
+        return false;
     }
 }
