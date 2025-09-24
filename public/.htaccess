@@ -1,40 +1,37 @@
-# Prerender.io Dynamic Rendering
 <IfModule mod_rewrite.c>
+  # Aktifkan rewrite engine hanya sekali
   RewriteEngine On
-  RewriteBase /
-  
+
+  # Prerender.io Dynamic Rendering
   # Jika permintaan datang dari bot
   RewriteCond %{HTTP_USER_AGENT} (googlebot|bingbot|slurp|duckduckbot|yandexbot|baidubot|facebookexternalhit|linkedinbot|twitterbot|pinterestbot) [NC]
   RewriteCond %{QUERY_STRING} !_prerender [NC]
-  RewriteRule ^(?!assets\/)(.*)$ https://service.prerender.io/https://%{HTTP_HOST}/$1 [L,P,E=PRERENDER_TOKEN:1rZYuprfyJ2pkFeOJjOp]
+  RewriteRule ^(?!assets/)(.*)$ https://service.prerender.io/https://%{HTTP_HOST}/$1 [L,P,E=PRERENDER_TOKEN:1rZYuprfyJ2pkFeOJjOp]
 
   # Jika permintaan dari Prerender.io sendiri untuk render (agar tidak looping)
   RewriteCond %{HTTP_USER_AGENT} ^Prerender [NC]
   RewriteRule ^ - [L]
-</IfModule>
 
-<IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
-    </IfModule>
+  # Aturan Laravel yang sudah ada, biarkan tetap di bawah ini
+  <IfModule mod_negotiation.c>
+    Options -MultiViews -Indexes
+  </IfModule>
 
-    RewriteEngine On
+  # Handle Authorization Header
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+  # Handle X-XSRF-Token Header
+  RewriteCond %{HTTP:x-xsrf-token} .
+  RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
 
-    # Handle X-XSRF-Token Header
-    RewriteCond %{HTTP:x-xsrf-token} .
-    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+  # Redirect Trailing Slashes If Not A Folder...
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} (.+)/$
+  RewriteRule ^ %1 [L,R=301]
 
-    # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
-
-    # Send Requests To Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+  # Send Requests To Front Controller...
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ index.php [L]
 </IfModule>

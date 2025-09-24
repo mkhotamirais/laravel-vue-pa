@@ -19,7 +19,7 @@
 
     ],
     "home": {
-        "title": "The Best Tour Packages & Car Rentals in Lombok",
+        "title": "Best Car Rental & Tour Packages in Lombok",
         "description": "Get the comfort of Car Rental and Tour Packages in Lombok with professional and friendly service from us. Explore the beauty of Lombok with ease and enjoy a pleasant journey.",
         "meta_keywords": "car rental lombok, rental car lombok, self drive lombok, include driver lombok, tour package lombok",
         "contact_title": "Want to rent a car or choose a holiday package?",
@@ -27,17 +27,17 @@
     },
     "carrental": {
         "top_title": "Car Rental",
-        "title": "Find your perfect vehicle for rent",
+        "title": "Self-Drive & Driver-Inclusive Car Rental in Lombok",
         "description": "Choose from our wide selection of vehicles, from economical sedans to luxury SUVs. Find the perfect car for any trip and enjoy the freedom of exploring without limits."
     },
     "tourpackage": {
         "top_title": "Tour Packages",
-        "title": "Book your next dream tour today",
+        "title": "Book Lombok Tour Packages with Various Options",
         "description": "Plan your dream vacation with our curated tour packages. From exotic beaches to majestic mountains, each package is designed for an unforgettable experience."
     },
     "blog": {
         "top_title": "Blogs",
-        "title": "Discover captivating stories from our blog",
+        "title": "Read Our Blog & Articles About the Beauty of Lombok",
         "description": "Dive into the beauty of nature through our articles and travel guides. Get tips, inspiring stories, and the best recommendations for your next adventure."
     },
     "form": {

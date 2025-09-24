@@ -18,7 +18,7 @@
         {"label": "Buat Paket Wisata", "url": "/dashboard/blog/paket-wisata/create", "name": "paket-wisata.create"}
     ],
     "home": {
-        "title": "Paket Wisata & Sewa Mobil Terbaik di Lombok",
+        "title": "Sewa Mobil Lombok dan Paket Wisata Terbaik",
         "description": "Dapatkan kenyamanan Sewa Mobil dan Paket Wisata di Lombok dengan layanan profesional dan ramah dari kami. Jelajahi keindahan Lombok dengan mudah dan nikmati perjalanan yang menyenangkan.",
         "meta_keywords": "sewa mobil lombok, rental mobil lombok, lepas kunci lombok, include driver lombok, paket wisata lombok",
         "contact_title": "Mau sewa mobil atau pilih paket liburan?",
@@ -26,17 +26,17 @@
     },
     "carrental": {
         "top_title": "Sewa Mobil",
-        "title": "Tempat Sewa Mobil Murah & Berkualitas di Lombok",
+        "title": "Sewa Mobil Lepas Kunci Lombok dan Include Driver",
         "description": "Pilih dari beragam pilihan kendaraan kami, mulai dari sedan ekonomis hingga SUV mewah. Temukan mobil yang tepat untuk setiap perjalanan dan nikmati kebebasan menjelajah tanpa batas."
     },
     "tourpackage": {
         "top_title": "Paket Wisata",
-        "title": "Pesan Tur Impian Anda Hari Ini",
+        "title": "Pesan Paket Wisata Lombok dalam Berbagai Pilihan",
         "description": "Rencanakan liburan impian Anda dengan paket tur pilihan kami. Dari pantai eksotis hingga pegunungan megah, setiap paket dirancang untuk pengalaman tak terlupakan."
     },
     "blog": {
         "top_title": "Blog",
-        "title": "Temukan Kisah Menarik dari Blog Kami",
+        "title": "Baca Blog dan Artikel tentang Keindahan Lombok",
         "description": "Selami keindahan alam melalui artikel dan panduan perjalanan kami. Dapatkan tips, kisah inspiratif, dan rekomendasi terbaik untuk petualangan Anda berikutnya."
     },
     "form": {
