@@ -8,7 +8,7 @@ import BlogExcerpt from "./BlogExcerpt.vue";
 <template>
   <div
     :href="route('public.blog.show', blog)"
-    class="group space-y-3 inline-block mb-2 w-full"
+    class="group space-y-3 inline-block mb-3 w-full"
   >
     <Link :href="route('public.blog.show', blog)" class="w-full inline-block">
       <img

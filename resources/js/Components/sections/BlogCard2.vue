@@ -3,6 +3,7 @@ defineProps({ blog: Object });
 
 import { diffForHumans, smartTrim } from "@/functions";
 import BlogExcerpt from "./BlogExcerpt.vue";
+import { stripHtml } from "../../functions";
 </script>
 
 <template>
@@ -26,7 +27,7 @@ import BlogExcerpt from "./BlogExcerpt.vue";
         <h3 class="h3">{{ smartTrim(blog.title, 60) }}</h3>
       </Link>
       <BlogExcerpt :blog="blog" />
-      <p v-html="smartTrim(blog.content, 160)" class="text-content"></p>
+      <p>{{ stripHtml(smartTrim(blog.content, 200)) }}</p>
     </div>
   </div>
 </template>
