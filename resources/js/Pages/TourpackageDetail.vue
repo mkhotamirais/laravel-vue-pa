@@ -1,5 +1,5 @@
 <script setup>
-import { formatRupiah, smartTrim } from "@/functions";
+import { formatRupiah, smartTrim, stripHtml } from "@/functions";
 import Slider from "@/Components/ui/Slider.vue";
 import AsideLatestBlog from "@/Components/sections/AsideLatestBlog.vue";
 import { capitalize, ref } from "vue";
@@ -36,26 +36,20 @@ const chooseCategory = (cat) => {
     <Head>
       <title>
         {{
-          tourpackage.meta_title || smartTrim(capitalize(tourpackage.title), 60)
+          tourpackage?.meta_title || smartTrim(capitalize(tourpackage.name), 60)
         }}
       </title>
       <meta
         head-key="description"
         name="description"
         :content="
-          tourpackage?.meta_description ||
-          smartTrim(stripHtml(tourpackage.content), 150) ||
-          $t('home.description')
+          tourpackage?.meta_description || $t('tourpackage.description')
         "
       />
       <meta
         head-key="keywords"
         name="keywords"
-        :content="
-          tourpackage?.meta_keywords ||
-          tourpackage?.tags ||
-          $t('home.meta_keywords')
-        "
+        :content="tourpackage?.meta_keywords || $t('home.meta_keywords')"
       />
 
       <!-- og -->
@@ -63,16 +57,14 @@ const chooseCategory = (cat) => {
         head-key="og:title"
         property="og:title"
         :content="
-          tourpackage.meta_title || smartTrim(capitalize(tourpackage.title), 60)
+          tourpackage.meta_title || smartTrim(capitalize(tourpackage.name), 60)
         "
       />
       <meta
         head-key="og:description"
         property="og:description"
         :content="
-          tourpackage?.meta_description ||
-          smartTrim(stripHtml(tourpackage.content), 150) ||
-          $t('home.description')
+          tourpackage?.meta_description || $t('tourpackage.description')
         "
       />
       <meta head-key="og:type" property="og:type" content="article" />
@@ -81,7 +73,7 @@ const chooseCategory = (cat) => {
         property="og:image"
         :content="
           tourpackage?.banner
-            ? `/storage/${item.banner}`
+            ? `/storage/${tourpackage.banner}`
             : '/storage/images/logo-panoramaalam.png'
         "
       />

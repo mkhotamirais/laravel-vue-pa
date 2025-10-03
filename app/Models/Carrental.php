@@ -21,7 +21,7 @@ class Carrental extends Model
 
     public function getRouteKeyName()
     {
-        return "name";
+        return "slug";
     }
 
     public function user()

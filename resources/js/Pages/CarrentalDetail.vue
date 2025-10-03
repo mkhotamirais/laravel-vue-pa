@@ -1,5 +1,5 @@
 <script setup>
-import { formatRupiah, smartTrim, diffForHumans } from "@/functions";
+import { formatRupiah, smartTrim, diffForHumans, stripHtml } from "@/functions";
 import { capitalize } from "vue";
 import AsideLatestBlog from "../Components/sections/AsideLatestBlog.vue";
 import AsideOtherCarrental from "../Components/sections/AsideOtherCarrental.vue";
@@ -33,20 +33,12 @@ const chooseCategory = (cat) => {
       <meta
         head-key="description"
         name="description"
-        :content="
-          carrental?.meta_description ||
-          smartTrim(stripHtml(blog.content), 150) ||
-          $t('home.description')
-        "
+        :content="carrental?.meta_description || $t('carrental.description')"
       />
       <meta
         head-key="keywords"
         name="keywords"
-        :content="
-          carrental?.meta_keywords ||
-          carrental?.tags ||
-          $t('home.meta_keywords')
-        "
+        :content="carrental?.meta_keywords || $t('home.meta_keywords')"
       />
 
       <!-- og -->
@@ -63,11 +55,7 @@ const chooseCategory = (cat) => {
       <meta
         head-key="og:description"
         property="og:description"
-        :content="
-          carrental?.meta_description ||
-          smartTrim(stripHtml(blog.content), 150) ||
-          $t('home.description')
-        "
+        :content="carrental?.meta_description || $t('carrental.description')"
       />
       <meta head-key="og:type" property="og:type" content="product" />
       <meta
